@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>회원가입</title>
+        <link rel="stylesheet" href="SignupStyle.css" />
+    </head>
+    <body>
+        <div class="container">
+            <div class="head-container">
+                <div class="head-back-button">
+                    <button>back</button>
+                </div>
+                <div class="head-title-name">
+                    <h1>회원가입</h1>
+                </div>
+                <div class="head-cart-button">
+                    <button>cart</button>
+                </div>
+            </div>
+
+            <div>
+                <form id="signup-form">
+                    <div class="signup-container">
+                        <div class="signup-control">
+                            <!-- 아이디(이메일) 및 중복확인 -->
+                            <div class="signup-id-label">
+                                <label>아이디(이메일) <span>*</span></label>
+                            </div>
+                            <div class="signup-input-button">
+                                <div class="signup-input">
+                                    <input
+                                        class="id-input"
+                                        id="id-input"
+                                        type="email"
+                                        name="id"
+                                        placeholder="아이디를 입력해주세요"
+                                        required
+                                    />
+                                </div>
+                                <button class="confirm-button" type="button">중복확인</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 비밀번호 -->
+                    <div class="signup-password-label">
+                        <label>비밀번호 <span>*</span></label>
+                    </div>
+                    <div class="signup-input-button">
+                        <div class="signup-input">
+                            <input
+                                class="password-input"
+                                id="password-input"
+                                type="password"
+                                name="password"
+                                placeholder="비밀번호를 입력해주세요"
+                                required
+                            />
+                        </div>
+                    </div>
+
+                    <!-- 비밀번호확인 -->
+                    <div class="signup-confirm-password-label">
+                        <label>비밀번호확인 <span>*</span></label>
+                    </div>
+                    <div class="signup-input-button">
+                        <div class="signup-input">
+                            <input
+                                class="confirm-password-input"
+                                id="confirm-password-input"
+                                type="password"
+                                name="confirm-password"
+                                placeholder="비밀번호를 한번 더 입력해주세요"
+                                required
+                            />
+                        </div>
+                    </div>
+
+                    <!-- 이름 -->
+                    <div class="signup-name-label">
+                        <label>이름 <span>*</span></label>
+                    </div>
+                    <div class="signup-input-button">
+                        <div class="signup-input">
+                            <input
+                                class="name-input"
+                                id="name-input"
+                                type="text"
+                                name="name"
+                                placeholder="이름을 입력해 주세요"
+                                required
+                            />
+                        </div>
+                    </div>
+
+                    <!-- 주소 -->
+                    <div class="signup-address-label">
+                        <label>주소 <span>*</span></label>
+                    </div>
+                    <div class="signup-input-button">
+                        <div class="signup-input">
+                            <input
+                                class="address-input"
+                                id="address-input"
+                                type="text"
+                                name="address"
+                                placeholder="도로명, 지번, 건물명 검색"
+                                required
+                            />
+                            <img class="search-icon" src="search.svg" alt="search-icon" />
+                            <span class="address-info">배송지에 따라 상품 정보가 달라질 수 있습니다.</span>
+                        </div>
+                    </div>
+
+                    <div class="signup">
+                        <button class="signup-button" type="button">가입하기</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <script src="Signup.js"></script>
+    </body>
+</html>

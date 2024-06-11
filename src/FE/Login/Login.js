@@ -40,12 +40,12 @@ OnLoginForm.addEventListener('submit', async (event) => {
         console.error('오류:', error);
         alert('오류가 발생했습니다. 나중에 다시 시도해주세요.');
     }
+});
 
-    /** 회원가입 버튼 클릭 시 회원가입 페이지로 이동 */
-    const OnsignupButton = document.querySelector('.signup-button');
+/** 회원가입 버튼 클릭 시 회원가입 페이지로 이동 */
+const OnsignupButton = document.querySelector('.signup-button');
 
-    OnsignupButton.addEventListener('click', () => {
-        /** 경로 '/회원가입 페이지' */
-        window.location.href = '/signup';
-    });
+OnsignupButton.addEventListener('click', () => {
+    /** 경로 '/회원가입 페이지' */
+    window.location.href = '../Signup/Signup.html';
 });
