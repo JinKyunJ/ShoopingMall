@@ -7,14 +7,14 @@ OnCloseButton.addEventListener('click', () => {
 });
 
 /** 로그인 버튼 클릭 시 서버에 사용자가 입력한 id, password 전송 */
-const OnLonginButton = document.querySelector('.login-button');
+const OnLoginForm = document.getElementById('login-form');
 const idInput = document.getElementById('id-input');
 const passwordInput = document.getElementById('password-input');
 
-OnLonginButton.addEventListener('submit', async (event) => {
+OnLoginForm.addEventListener('submit', async (event) => {
     event.preventDefault(); /** 기본 폼 제출 방지 */
 
-    const id = (idInput = idInput.value);
+    const id = idInput.value;
     const password = passwordInput.value;
 
     try {
@@ -40,4 +40,12 @@ OnLonginButton.addEventListener('submit', async (event) => {
         console.error('오류:', error);
         alert('오류가 발생했습니다. 나중에 다시 시도해주세요.');
     }
+
+    /** 회원가입 버튼 클릭 시 회원가입 페이지로 이동 */
+    const OnsignupButton = document.querySelector('.signup-button');
+
+    OnsignupButton.addEventListener('click', () => {
+        /** 경로 '/회원가입 페이지' */
+        window.location.href = '/signup';
+    });
 });
