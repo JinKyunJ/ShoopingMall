@@ -6,22 +6,63 @@
     <link rel="stylesheet" href="CategoryStyle.css"> <!--rel 외부 리소스와 관계  href 파일-->
 </head>
 <body>
-    <div class="title-div">
-        <p class="title-FontStyle">카테고리</p>
-        <button class="title-div-button">장바구니</button>
-    </div>
-    <nav class="Category-Nav">
-        <div class="Category-Nav-div">
-            <button class="Category-Nav-btn">
-                <span>카테고리 1</span>
-            </button>
-            <button class="Category-Nav-btn">
-                <span>카테고리 2</span>
-            </button>
+    <!--상단 메뉴 네비게이션 영역-->
+    <div class="title">
+        <div class="title-div">
+            <p class="title-FontStyle">카테고리</p>
+            <button class="title-div-button">장</button>
         </div>
-    </nav>
-    <div class="test-div">
-
+        <nav class="Category-Nav">
+            <div class="Category-Nav-div">
+                <button class="Category-Nav-btn"> <!--나중에 이걸 데이터화 시키면 좋을듯함-->
+                    <span>카테고리 1</span>
+                </button>
+            </div>
+        </nav>
     </div>
+    <div class="Category-List">
+        <!--상위 리스트 영역-->
+        <div class="Category-List-Index">
+            <ul >
+                <li>
+                    <button class="Category-List-btn">
+                        <span> 품목명 1 </span>
+                    </button>
+                </li>
+                <li>
+                    <button class="Category-List-btn">
+                        <span> 품목명 2</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="Category-List-btn">
+                        <span> 품목명 3</span>
+                    </button>
+                </li>
+            </ul>
+        </div>
+        <!--하위 리스트 영역-->
+        <div class="Category-List-Index">
+            <ul >
+                <li>
+                    <button class="Category-List-btn">
+                        <span> 품목명 21 </span>
+                    </button>
+                </li>
+                <li>
+                    <button class="Category-List-btn">
+                        <span> 품목명 22</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="Category-List-btn">
+                        <span> 품목명 23</span>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+
 </body>
 </html>
+
