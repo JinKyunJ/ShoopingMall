@@ -21,29 +21,33 @@
                 <form>
                     <div class="id-password-container">
                         <div class="id-password-control">
-                            <input
-                                class="id-input"
-                                id="id-input"
-                                type="text"
-                                name="id"
-                                value
-                                placeholder="아이디 입력"
-                            />
+                            <label for="id-input" aria-hidden="true">
+                                <input
+                                    class="id-input"
+                                    id="id-input"
+                                    type="text"
+                                    name="id"
+                                    value
+                                    placeholder="아이디 입력"
+                                />
+                            </label>
                         </div>
                         <div class="id-password-control">
-                            <input
-                                class="password-input"
-                                id="password-input"
-                                type="password"
-                                name="password"
-                                value
-                                placeholder="비밀번호 입력"
-                            />
+                            <label for="password-input">
+                                <input
+                                    class="password-input"
+                                    id="password-input"
+                                    type="password"
+                                    name="password"
+                                    value
+                                    placeholder="비밀번호 입력"
+                                />
+                            </label>
                         </div>
                     </div>
 
                     <div class="checkbox">
-                        <label>
+                        <label for="checkbox-input">
                             <input
                                 class="checkbox-input"
                                 id="checkbox-input"
@@ -55,13 +59,13 @@
                     </div>
 
                     <div class="login-signup">
-                        <button class="login-signup-button" type="button">로그인</button>
-                        <button class="login-signup-button" type="button">회원가입</button>
+                        <button class="login-signup-button" type="submit">로그인</button>
+                        <button class="login-signup-button" type="submit">회원가입</button>
                     </div>
 
                     <div class="info-find">
                         <a href="#">아이디 찾기</a>
-                        <span>|</span>
+                        <span></span>
                         <a href="#">비밀번호 찾기</a>
                     </div>
                 </form>

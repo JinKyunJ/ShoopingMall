@@ -1,0 +1,119 @@
+* {
+    /* 공통으로 적용시킬 스타일 */
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    /* 가로 세로 가운데 정렬 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* 화면 전체 높이를 차지 */
+}
+
+.container {
+    width: 400px; /* 너비 */
+    max-width: 100%; /* 최대 너비 */
+    min-height: 400px; /* 최소 높이 (변경가능) */
+    background: white; /* 배경색 */
+    border: 1px solid rgb(251, 146, 60); /* 테두리 */
+    padding: 15px 30px; /* 안쪽 여백 */
+    text-align: center; /* 텍스트 가운데 정렬 */
+}
+
+.head-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px; /* 하단 여백 */
+    position: relative; /* 상대 위치 */
+}
+
+.head-x-button {
+    position: absolute; /* 절대 위치 */
+    left: 0; /* 왼쪽 여백 */
+}
+
+.head-x-button button {
+    background: none; /* 배경 없음 */
+    border: none; /* 테두리 없음 */
+    font-size: 1rem; /* 글자 크기 */
+    cursor: pointer; /* 포인터 커서 */
+}
+
+.head-title-name {
+    font-size: 12px; /* 글자 크기 */
+    text-align: center; /* 텍스트 가운데 정렬 */
+}
+
+.id-password-container {
+    margin-bottom: 10px; /* 하단 여백 */
+}
+
+.id-password-control {
+    display: flex;
+    align-items: center;
+    height: 40px; /* 높이 */
+    border: 1px solid rgb(251, 146, 60); /* 테두리 */
+    margin-bottom: 5px; /* 하단 여백 */
+    border-radius: 5px; /* 모서리 둥글게 */
+}
+
+.id-password-control input {
+    padding: 0 10px; /* 안쪽 여백 */
+    width: 100%; /* 너비 100% */
+    border: none; /* 테두리 없음 */
+    outline: none; /* 포커스 효과 제거 */
+}
+
+.checkbox {
+    display: flex;
+    align-items: center;
+    height: 50px; /* 높이 */
+}
+
+.checkbox label {
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-input {
+    margin-right: 10px; /* 오른쪽 여백 */
+}
+
+.checkbox span {
+    font-size: 14px; /* 글자 크기 */
+}
+
+.login-signup {
+    display: flex;
+    flex-direction: column; /* 세로로 나열 */
+    gap: 5px; /* 아이템 간격 */
+}
+
+.login-signup-button {
+    width: 100%; /* 너비 100% */
+    padding: 10px; /* 안쪽 여백 */
+    border: none; /* 테두리 없음 */
+    border-radius: 5px; /* 모서리 둥글게 */
+    font-size: 16px; /* 글자 크기 */
+    cursor: pointer; /* 포인터 커서 */
+    background: rgb(251, 146, 60); /* 배경색 */
+}
+
+.info-find {
+    margin-top: 20px; /* 상단 여백 */
+    font-size: 14px; /* 글자 크기 */
+}
+
+.info-find a {
+    color: rgb(150, 150, 150); /* 글자 색상 */
+    text-decoration: none; /* 밑줄 제거 */
+}
+
+.info-find span::before {
+    content: '|'; /* 가상 요소로 파이프라인 추가 */
+
+    color: rgb(150, 150, 150); /* 글자 색상 */
+}
