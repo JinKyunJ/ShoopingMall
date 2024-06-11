@@ -117,3 +117,9 @@ body {
 
     color: rgb(150, 150, 150); /* 글자 색상 */
 }
+
+@media (max-width: 600px) {
+    .container {
+        width: 100%; /* 화면에 꽉 차도록 컨테이너의 너비를 조정합니다. */
+    }
+}
