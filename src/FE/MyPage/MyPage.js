@@ -26,6 +26,29 @@ const fetchAndNavigate = async (url, event) => {
     }
 };
 
+/** 사용자 이름 가져오기 */
+const fetchUserName = async () => {
+    try {
+        const response = await fetch('/user-info', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        if (response.ok) {
+            const data = await response.json();
+            const userNameElement = document.getElementById('user-name'); /** 'user-name' ID를 가진 HTML요소 */
+            userNameElement.textContent = `${data.name}님`; /** 요소의 텍스트 내용을 `${data.name}님`으로 변경 */
+        } else {
+            console.error('사용자 정보를 가져오는 데 실패했습니다.');
+        }
+    } catch (error) {
+        console.error('오류:', error);
+    }
+};
+/** 사용자 이름 가져오기 함수 호출 */
+fetchUserName();
+
 /** 장바구니 버튼 클릭 시 장바구니 페이지로 이동 */
 const OnCartButton = document.querySelector('.head-cart-button');
 OnCartButton.addEventListener('click', () => {
@@ -44,13 +67,13 @@ setEventListener('.dashboard-button', 'click', async (event) => {
     await fetchAndNavigate(url, event);
 });
 
-/** 메뉴 정보 섹션 버튼 클릭 시 API 호출 + 각 페이지로 이동 */
+/** 메뉴 정보 섹션 버튼 클릭 시 각 페이지로 이동 */
 setEventListener('.menu-info-section button', 'click', async (event) => {
     const url = event.currentTarget.getAttribute('data-url');
     await fetchAndNavigate(url, event);
 });
 
-/** 로그아웃 버튼 클릭 시 API 호출 + 로그아웃 처리 후 홈 페이지로 이동 */
+/** 로그아웃 버튼 클릭 시 로그아웃 처리 후 홈 페이지로 이동 */
 const onLogoutButton = document.querySelector('.logout-button button');
 onLogoutButton.addEventListener('click', async (event) => {
     event.preventDefault(); /** 기본 동작 막기 */
