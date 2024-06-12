@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>마이페이지</title>
+        <link rel="stylesheet" href="MyPageStyle.css" />
+    </head>
+    <body>
+        <div class="container">
+            <!-- 상단 제목, 장바구니 버튼 -->
+            <div class="head-container">
+                <div class="head-div">
+                    <h1 class="head-title">마이페이지</h1>
+                    <button class="head-cart-button">cart</button>
+                </div>
+            </div>
+
+            <div class="body-container">
+                <!-- 사용자 등급 정보, 사용자 이름 -->
+                <div class="top-info-section">
+                    <div class="top-info-grade-name">
+                        <div class="grade-icon">웰컴</div>
+                        <div class="grade-text">
+                            <div class="user-name">엘리스님</div>
+                            <div class="button-wrap">
+                                <button class="grade-button">전체 등급 확인</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 사용자 대시보드 -->
+                <div class="user-dashboard">
+                    <ul class="dashboard-list">
+                        <li>
+                            <a href="#">
+                                <img src="svgs/order.svg" alt="order-icon" />
+                                <div>주문내역</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="svgs/cupon.svg" alt="cupon-icon" />
+                                <div>쿠폰</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="svgs/wishlist.svg" alt="wishlist-icon" />
+                                <div>찜</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="svgs/favorite.svg" alt="favorite-icon" />
+                                <div>자주구매</div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 상세 메뉴 정보 -->
+                <div class="menu-info-section">
+                    <div class="menu-management">
+                        <h2>내 정보관리</h2>
+                        <ul class="dashboard-list">
+                            <li><a href="#">개인정보 수정</a></li>
+                            <li><a href="#">배송지 관리</a></li>
+                        </ul>
+                    </div>
+                    <div class="menu-customer-support">
+                        <h2>고객 지원</h2>
+                        <ul class="dashboard-list">
+                            <li><a href="#">고객센터</a></li>
+                            <li><a href="#">공지사항</a></li>
+                            <li><a href="#">상품 문의</a></li>
+                            <li><a href="#">자주하는 질문</a></li>
+                            <li><a href="#">1:1 문의</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- 로그아웃 버튼  -->
+                    <div class="logout-button">
+                        <a href="#">로그아웃</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 하단 Nav-Bar -->
+            <nav class="bottom-navbar">
+                <ul>
+                    <li>
+                        <a href="#">
+                            <img src="svgs/home.svg" alt="home-icon" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="svgs/burger.svg" alt="burger-icon" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="svgs/search.svg" alt="search-icon" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="svgs/user.svg" alt="user-icon" />
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <script src="MyPage.js"></script>
+    </body>
+</html>
