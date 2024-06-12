@@ -14,7 +14,7 @@ body {
 }
 
 .container {
-    width: 400px; /* 너비 */
+    width: 430px; /* 너비 */
     max-width: 100%; /* 최대 너비 */
     min-height: 350px; /* 최소 높이 (변경가능) */
     background: white; /* 배경색 */
@@ -115,10 +115,4 @@ body {
     cursor: pointer; /* 포인터 커서 */
     background: rgb(251, 146, 60); /* 배경색 */
     color: white;
-}
-
-@media (max-width: 600px) {
-    .container {
-        width: 100%; /* 화면에 꽉 차도록 컨테이너의 너비를 조정합니다. */
-    }
 }
