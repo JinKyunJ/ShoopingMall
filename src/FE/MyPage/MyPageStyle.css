@@ -130,13 +130,19 @@ body {
     text-align: center;
 }
 
-.dashboard-list li a {
+.dashboard-list li button {
     /* 대시보드 링크 스타일 */
     color: black;
     text-decoration: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    font-size: 16px;
+    width: 100%;
 }
 
-.dashboard-list li a span {
+.dashboard-list li button span {
     /* 대시보드 강조 텍스트 스타일 */
     color: rgb(251, 146, 60);
 }
@@ -183,24 +189,29 @@ body {
     font-weight: 600;
 }
 
-.menu-info-section ul li a {
+.menu-info-section ul li button {
     /* 메뉴 정보 섹션 링크 스타일 */
     text-decoration: none;
     font-size: 16px;
+    text-align: left;
+    font-weight: 600;
 }
 
-/* 로그아웃 버튼 스타일 */
+/* 로그아웃 div 스타일 */
 .logout-button {
     text-align: start;
     margin-top: 30px;
 }
 
-.logout-button a {
-    /* 로그아웃 링크 스타일 */
+.logout-button button {
+    /* 로그아웃 버튼 스타일 */
+    border: none;
+    background: none;
     text-decoration: none;
     color: rgb(251, 146, 60);
     font-size: 16px;
     font-weight: 600;
+    cursor: pointer;
 }
 
 /* 하단 네비게이션 바 스타일 */

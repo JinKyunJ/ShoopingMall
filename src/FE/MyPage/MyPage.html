@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>backup_마이페이지</title>
+        <title>마이페이지</title>
         <link rel="stylesheet" href="MyPageStyle.css" />
     </head>
     <body>
@@ -30,61 +30,63 @@
                 <div class="user-dashboard">
                     <ul class="dashboard-list">
                         <li>
-                            <a href="#">
+                            <!-- API 호출 관련 <a> 태그에서 <button> 태그로 변경 -->
+                            <button class="dashboard-button" data-url="/order-history">
                                 <img src="svgs/order.svg" alt="order-icon" />
                                 <div>주문내역</div>
-                            </a>
+                            </button>
                         </li>
                         <li>
-                            <a href="#">
+                            <button class="dashboard-button" data-url="/coupons">
                                 <img src="svgs/cupon.svg" alt="cupon-icon" />
                                 <div>
                                     쿠폰
                                     <span>0</span>
                                 </div>
-                            </a>
+                            </button>
                         </li>
                         <li>
-                            <a href="#">
+                            <button class="dashboard-button" data-url="/wishlist">
                                 <img src="svgs/wishlist.svg" alt="wishlist-icon" />
                                 <div>
                                     찜
                                     <span>0</span>
                                 </div>
-                            </a>
+                            </button>
                         </li>
                         <li>
-                            <a href="#">
+                            <button class="dashboard-button" data-url="/frequent-purchases">
                                 <img src="svgs/favorite.svg" alt="favorite-icon" />
                                 <div>자주구매</div>
-                            </a>
+                            </button>
                         </li>
                     </ul>
                 </div>
 
                 <!-- 상세 메뉴 정보 -->
                 <div class="menu-info-section">
+                    <!-- API 호출 관련 <a> 태그에서 <button> 태그로 변경 -->
                     <div class="menu-management">
                         <h2>내 정보관리</h2>
                         <ul class="dashboard-list">
-                            <li><a href="#">개인정보 수정</a></li>
-                            <li><a href="#">배송지 관리</a></li>
+                            <li><button data-url="/profile">개인정보 수정</button></li>
+                            <li><button data-url="/address">배송지 관리</button></li>
                         </ul>
                     </div>
                     <div class="menu-customer-support">
                         <h2>고객 지원</h2>
                         <ul class="dashboard-list">
-                            <li><a href="#">고객센터</a></li>
-                            <li><a href="#">공지사항</a></li>
-                            <li><a href="#">상품 문의</a></li>
-                            <li><a href="#">자주하는 질문</a></li>
-                            <li><a href="#">1:1 문의</a></li>
+                            <li><button data-url="/support">고객센터</button></li>
+                            <li><button data-url="/notices">공지사항</button></li>
+                            <li><button data-url="/inquiry">상품 문의</button></li>
+                            <li><button data-url="/faq">자주하는 질문</button></li>
+                            <li><button data-url="/contact">1:1 문의</button></li>
                         </ul>
                     </div>
 
                     <!-- 로그아웃 버튼  -->
                     <div class="logout-button">
-                        <a href="#">로그아웃</a>
+                        <button>로그아웃</button>
                     </div>
                 </div>
             </div>
