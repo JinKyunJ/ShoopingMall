@@ -57,7 +57,7 @@ body {
     text-align: left; /* 라벨 왼쪽 정렬 */
 }
 
-.signup-id-label,
+.signup-email-label,
 .signup-password-label,
 .signup-confirm-password-label,
 .signup-name-label,
