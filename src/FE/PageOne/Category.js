@@ -72,3 +72,9 @@ document.addEventListener("DOMContentLoaded", ()=>{
 });
 
 //장바구니에 담기
+//SPA 싱글페이지 어플리케이션 컴포넌트만 불러와서 랜더링 되는 방식.
+
+//장바구니의 관점에서는 카운트가 유지되는게 맞다.
+//웹을 켯을때도 유지가 되어야한다.
+
+document.body.innerHTML
