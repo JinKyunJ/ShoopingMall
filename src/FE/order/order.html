@@ -13,7 +13,7 @@
     <div class="container order-container">
       <form action="" name="order-form">
         <section class="order-product">
-          <div class="title-box">
+          <div class="title-box toggle-title">
             <h2>주문상품</h2>
             <span class="arrow">
               <svg
@@ -58,7 +58,7 @@
         </section>
 
         <section class="user-info">
-          <div class="title-box">
+          <div class="title-box toggle-title">
             <h2>주문자 정보</h2>
             <div class="right-box">
               <span class="text"></span>
@@ -90,10 +90,10 @@
               <dt>이메일</dt>
               <dd id="user-email">@naver.com</dd>
             </dl>
+            <p class="notice">
+              주문자 정보 변경 방법 : 마이페이지 > 개인정보 수정
+            </p>
           </div>
-          <p class="notice">
-            주문자 정보 변경 방법 : 마이페이지 > 개인정보 수정
-          </p>
         </section>
 
         <section class="user-address">
@@ -111,23 +111,27 @@
           <div class="title-box">
             <h2>배송 요청사항</h2>
           </div>
-          <textarea
-            name="request-text"
-            placeholder="배송 시 요청사항을 입력하세요."
-          ></textarea>
+          <div class="content-box">
+            <textarea
+              name="request-text"
+              placeholder="배송 시 요청사항을 입력하세요."
+            ></textarea>
+          </div>
         </section>
 
         <section class="mileage">
           <div class="title-box">
             <h2>적립금</h2>
           </div>
-          <dl>
-            <dt>사용가능 적립금</dt>
-            <dd>0원</dd>
-          </dl>
-          <div class="mileage-input-box">
-            <input type="number" />
-            <button type="bytton">모두사용</button>
+          <div class="content-box">
+            <dl>
+              <dt>사용가능 적립금</dt>
+              <dd>0원</dd>
+            </dl>
+            <div class="mileage-input-box">
+              <input type="number" />
+              <button type="bytton">모두사용</button>
+            </div>
           </div>
         </section>
 
@@ -144,12 +148,10 @@
             <dt>적립금</dt>
             <dd><strong id="mileage">@@</strong>원</dd>
           </dl>
-          <div class="total-price-box">
-            <dl>
-              <dt>최종결제금액</dt>
-              <dd><strong id="total-price">@@,@@@</strong>원</dd>
-            </dl>
-          </div>
+          <dl class="total-price-box">
+            <dt>최종결제금액</dt>
+            <dd><strong id="total-price">@@,@@@</strong>원</dd>
+          </dl>
         </section>
 
         <section class="order-end">
@@ -162,7 +164,7 @@
     </div>
 
     <footer></footer>
-
     <script defer type="text/javascript" src="../js/include.js"></script>
+    <script defer type="text/javascript" src="../js/order/order.js"></script>
   </body>
 </html>

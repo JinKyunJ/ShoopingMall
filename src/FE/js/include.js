@@ -11,5 +11,4 @@ function loadHTML(selector, url) {
 document.addEventListener("DOMContentLoaded", () => {
   loadHTML("header", "/src/FE/layout/header.html");
   loadHTML("footer", "/src/FE/layout/footer.html");
-  //loadHTML(".Quick-Tool", "/src/FE/layout/quick_menu.html");
 });

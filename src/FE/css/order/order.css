@@ -1,15 +1,38 @@
+footer {
+  display: none;
+}
+
 .order-container section {
   padding: 14px 1.125rem;
   border-bottom: 8px solid #eee;
+}
+.order-container section:last-child {
+  border-bottom: 0;
 }
 .order-container .title-box {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 0 14px;
 }
 .order-container .title-box h2 {
   font-size: 14px;
+}
+.order-container .toggle-title + .content-box {
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.4s;
+  padding: 0;
+}
+.order-container .title-box.active .arrow {
+  transform: rotate(180deg);
+}
+
+.order-container .title-box.active + .content-box {
+  max-height: 50vh;
+  padding-top: 14px;
+}
+.order-container .content-box {
+  padding-top: 14px;
 }
 
 .order-container dl {
@@ -73,5 +96,49 @@
   font-size: 11px;
   color: #838383;
 }
-.order-container .mileage {
+.order-container .mileage dl {
+  justify-content: space-between;
+}
+.order-container .mileage dd {
+  font-weight: bold;
+}
+.order-container .mileage-input-box {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10px;
+}
+.order-container .mileage-input-box input {
+  height: 34px;
+  width: calc(100% - 80px);
+  text-align: right;
+}
+.order-container .mileage-input-box button {
+  height: 34px;
+  width: 70px;
+  border: 1px solid var(--main-color);
+  color: var(--main-color);
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.order-container .order-price-box dl {
+  justify-content: space-between;
+  padding: 4px 0;
+}
+.order-container .order-price-box .total-price-box {
+  padding-top: 15px;
+  margin-top: 10px;
+  border-top: 1px dashed #ddd;
+}
+
+.order-container .order-end p {
+  text-align: center;
+}
+.order-container .order-end button {
+  width: 100%;
+  background: var(--main-color);
+  border-radius: 4px;
+  height: 44px;
+  color: #fff;
+  margin-top: 15px;
 }
