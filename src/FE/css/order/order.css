@@ -23,6 +23,10 @@ footer {
   transition: all 0.4s;
   padding: 0;
 }
+.order-container .title-box .arrow {
+  transform: rotate(0);
+  display: block;
+}
 .order-container .title-box.active .arrow {
   transform: rotate(180deg);
 }
