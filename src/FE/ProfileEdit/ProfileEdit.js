@@ -49,8 +49,6 @@ currentPasswordInput.addEventListener('blur', async () => {
             if (!result.valid) {
                 // 현재비밀번호와 입력한 비밀번호가 다를때
                 errorSpan.textContent = '현재 비밀번호를 확인해 주세요.';
-                errorSpan.style.color = 'red';
-                errorSpan.style.fontSize = '13px';
             } else {
                 errorSpan.textContent = '';
             }
@@ -61,8 +59,6 @@ currentPasswordInput.addEventListener('blur', async () => {
     } else {
         // 비밀번호를 입력하지 않았을때
         errorSpan.textContent = '비밀번호를 입력주세요.';
-        errorSpan.style.color = 'red';
-        errorSpan.style.fontSize = '13px';
     }
 });
 
@@ -77,8 +73,6 @@ newPasswordInput.addEventListener('input', () => {
     /** 새 비밀번호 길이 확인 */
     if (newPassword.length > 0 && newPassword.length < 10) {
         errorSpan.textContent = '10자 이상 입력해주세요.';
-        errorSpan.style.color = 'red';
-        errorSpan.style.fontSize = '13px';
     } else {
         /** 영문, 숫자, 특수문자(공백 제외) 포함 여부 확인 / 정규표현식 사용 */
         const hasLetter = /[a-zA-Z]/.test(newPassword); // 영문자 포함 여부
@@ -89,8 +83,6 @@ newPasswordInput.addEventListener('input', () => {
 
         if (!isValidCombination) {
             errorSpan.textContent = '영문/숫자/특수문자(공백 제외)만 허용하며, 2개 이상 조합';
-            errorSpan.style.color = 'red';
-            errorSpan.style.fontSize = '13px';
         } else {
             errorSpan.textContent = '';
         }
@@ -105,8 +97,6 @@ const errorSpan = document.getElementById('confirm-new-password-error');
 confirmPasswordInput.addEventListener('input', () => {
     if (confirmPasswordInput.value !== newPasswordInput.value) {
         errorSpan.textContent = '동일한 비밀번호를 입력해주세요.';
-        errorSpan.style.color = 'red';
-        errorSpan.style.fontSize = '13px';
     } else {
         errorSpan.textContent = '';
     }
@@ -120,8 +110,6 @@ nameInput.addEventListener('input', () => {
     if (!nameInput.value.trim()) {
         // trim(): 공백을 제거하는 함수
         errorSpan.textContent = '이름을 입력해주세요.';
-        errorSpan.style.color = 'red';
-        errorSpan.style.fontSize = '13px';
     } else {
         errorSpan.textContent = '';
     }
