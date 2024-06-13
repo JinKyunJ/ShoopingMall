@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>주문서</title>
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/layout.css" />
+    <link rel="stylesheet" href="../css/order/order.css" />
+  </head>
+  <body>
+    <header></header>
+    <div class="container order-container">
+      <form action="" name="order-form">
+        <section class="order-product">
+          <div class="title-box">
+            <h2>주문상품</h2>
+            <span class="arrow">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="24px"
+                viewBox="0 -960 960 960"
+                width="24px"
+                fill="#5f6368"
+              >
+                <path
+                  d="M480-361q-8 0-15-2.5t-13-8.5L268-556q-11-11-11-28t11-28q11-11 28-11t28 11l156 156 156-156q11-11 28-11t28 11q11 11 11 28t-11 28L508-372q-6 6-13 8.5t-15 2.5Z"
+                />
+              </svg>
+            </span>
+          </div>
+          <ul class="order-list content-box">
+            <li>
+              <div class="img-box">
+                <img src="" alt="" />
+              </div>
+              <div class="info-box">
+                <p class="product-title">흙대파</p>
+                <div>
+                  <b class="price">2,000원</b
+                  ><span class="fixed-price">3,900원</span> | n개
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="img-box">
+                <img src="" alt="" />
+              </div>
+              <div class="info-box">
+                <p class="product-title">흙대파</p>
+                <div>
+                  <b class="price">2,000원</b
+                  ><span class="fixed-price">3,900원</span> | n개
+                </div>
+              </div>
+            </li>
+          </ul>
+        </section>
+
+        <section class="user-info">
+          <div class="title-box">
+            <h2>주문자 정보</h2>
+            <div class="right-box">
+              <span class="text"></span>
+              <span class="arrow"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="24px"
+                  viewBox="0 -960 960 960"
+                  width="24px"
+                  fill="#5f6368"
+                >
+                  <path
+                    d="M480-361q-8 0-15-2.5t-13-8.5L268-556q-11-11-11-28t11-28q11-11 28-11t28 11l156 156 156-156q11-11 28-11t28 11q11 11 11 28t-11 28L508-372q-6 6-13 8.5t-15 2.5Z"
+                  />
+                </svg>
+              </span>
+            </div>
+          </div>
+          <div class="content-box">
+            <dl>
+              <dt>보내는 분</dt>
+              <dd id="user-name">박보은</dd>
+            </dl>
+            <dl>
+              <dt>휴대폰</dt>
+              <dd id="user-phone-number">010-1111-2222</dd>
+            </dl>
+            <dl>
+              <dt>이메일</dt>
+              <dd id="user-email">@naver.com</dd>
+            </dl>
+          </div>
+          <p class="notice">
+            주문자 정보 변경 방법 : 마이페이지 > 개인정보 수정
+          </p>
+        </section>
+
+        <section class="user-address">
+          <div class="title-box">
+            <h2>배송지</h2>
+          </div>
+          <div class="content-box">
+            <p>
+              <strong id="user-address">서울 마포구 @@로 @길 11 1층</strong>
+            </p>
+          </div>
+        </section>
+
+        <section class="delivery_request">
+          <div class="title-box">
+            <h2>배송 요청사항</h2>
+          </div>
+          <textarea
+            name="request-text"
+            placeholder="배송 시 요청사항을 입력하세요."
+          ></textarea>
+        </section>
+
+        <section class="mileage">
+          <div class="title-box">
+            <h2>적립금</h2>
+          </div>
+          <dl>
+            <dt>사용가능 적립금</dt>
+            <dd>0원</dd>
+          </dl>
+          <div class="mileage-input-box">
+            <input type="number" />
+            <button type="bytton">모두사용</button>
+          </div>
+        </section>
+
+        <section class="order-price-box">
+          <dl>
+            <dt>주문 금액</dt>
+            <dd><strong id="order-price">@@</strong>원</dd>
+          </dl>
+          <dl>
+            <dt>배송비</dt>
+            <dd>+<strong id="delivery-price">@@</strong>원</dd>
+          </dl>
+          <dl>
+            <dt>적립금</dt>
+            <dd><strong id="mileage">@@</strong>원</dd>
+          </dl>
+          <div class="total-price-box">
+            <dl>
+              <dt>최종결제금액</dt>
+              <dd><strong id="total-price">@@,@@@</strong>원</dd>
+            </dl>
+          </div>
+        </section>
+
+        <section class="order-end">
+          <p>위 내용을 확인 하였으며 결제에 동의합니다.</p>
+          <button type="submit">
+            <strong id="total-order-price">@@,@@@</strong>원 결제하기
+          </button>
+        </section>
+      </form>
+    </div>
+
+    <footer></footer>
+
+    <script defer type="text/javascript" src="../js/include.js"></script>
+  </body>
+</html>

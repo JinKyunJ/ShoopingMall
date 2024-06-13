@@ -5,45 +5,49 @@ main {
 main section {
   padding: 0px 1.125rem;
 }
-main section.Main-Slide {
+main section.main-slide {
   padding: 0;
 }
 /* // main 페이지 공통*/
 
 /* 메인 슬라이드 */
-.Main-Slide .swiper {
+.main-slide .swiper {
   width: 100%;
 }
-.Main-Slide .swiper img {
+.main-slide .swiper img {
   width: 100%;
 }
-.Main-Slide .swiper-pagination {
+.main-slide .swiper-pagination {
   bottom: 10px;
 }
 /* // 메인 슬라이드 */
 
 /* 상품진열 */
-.Main-GoodsType1 .Title-Box {
+.main-product .title-box {
   position: relative;
   padding: 16px 0;
 }
-.Main-GoodsType1 .Title-Box h2 {
+.main-product .title-box h2 {
   font-size: 18px;
 }
-.Main-GoodsType1 .Title-Box a {
+.main-product .title-box a {
   position: absolute;
   right: 0;
   top: 14px;
   font-size: 14px;
 }
-.Main-GoodsType1 .Goods-Box {
+.main-product .product-box {
   overflow: hidden;
   width: 100%;
 }
-.Main-GoodsType1 .Goods-Box .Goods-Image img {
+.main-product .product-box .Goods-Image img {
   width: 100%;
+  border-radius: 4px;
 }
-.Main-GoodsType1 .Goods-Box .Cart-Btn {
+.main-product .product-box .Cart-Btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   background: #fff;
   border: 1px solid rgb(221, 221, 221);
@@ -51,34 +55,38 @@ main section.Main-Slide {
   border-radius: 4px;
   margin-top: 8px;
 }
-.Main-GoodsType1 .Goods-Info {
+.main-product .goods-info {
   padding: 10px 0 20px;
 }
-.Main-GoodsType1 .Goods-Info .Title {
+.main-product .goods-info .title {
   margin-bottom: 4px;
 }
-.Main-GoodsType1 .Goods-Info .Price {
+.main-product .goods-info .price {
   font-size: 12px;
   color: rgb(181, 181, 181);
   text-decoration: line-through;
 }
-.Main-GoodsType1 .Goods-Info .Dc-Price {
+.main-product .goods-info .dc-price {
   display: flex;
   font-weight: bold;
   color: #333;
   font-size: 14px;
 }
-.Main-GoodsType1 .Goods-Info .Percent {
+.main-product .goods-info .percent {
   color: var(--main-color);
   margin-right: 6px;
 }
-.Main-GoodsType1 .Goods-Info .Dc-Price .Price {
+.main-product .goods-info .dc-price .price {
   color: #333;
   font-size: 14px;
+  text-decoration: none;
 }
-.Main-GoodsType1 .Goods-Info .Review {
+.main-product .goods-info .review {
   font-size: 12px;
   color: rgb(181, 181, 181);
+}
+.main-product .goods-info .review svg {
+  vertical-align: middle;
 }
 /* //상품진열 */
 

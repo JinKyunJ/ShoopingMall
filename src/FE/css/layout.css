@@ -18,7 +18,6 @@ header .Header-Top {
   background: var(--main-color);
   padding: 4px 1.125rem;
 }
-
 .Header-Category ul {
   display: flex;
   justify-content: space-between;
@@ -30,11 +29,13 @@ header .Header-Top {
   line-height: 40px;
 }
 
-header + main {
+/* header fixed로 header 높이만큼 내용이 가려져 margin-top으로 가려지는 내용 노출 */
+header + main,
+header + .container {
   margin-top: 91px;
 }
 
-.Quick-Tool {
+.quick-tool {
   position: fixed;
   left: 0;
   bottom: 0;
@@ -44,7 +45,7 @@ header + main {
   border-top: 1px solid rgb(221, 221, 221);
 }
 
-.Quick-Tool ul {
+.quick-tool ul {
   display: flex;
   justify-content: space-around;
   align-items: center;
