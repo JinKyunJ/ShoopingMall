@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>backup_개인정보 수정</title>
+        <title>개인정보 수정</title>
         <link rel="stylesheet" href="ProfileEditStyle.css" />
     </head>
     <body>
@@ -22,8 +22,8 @@
                         <div class="form-label">
                             <label for="email">아이디(이메일)</label>
                         </div>
-                        <div class="profile-edit-input">
-                            <input type="email" id="email" name="email" />
+                        <div class="form-input">
+                            <input type="email" id="email" name="email" readonly />
                         </div>
                     </div>
 
@@ -40,6 +40,8 @@
                                 placeholder="비밀번호를 입력해 주세요"
                                 required
                             />
+                            <!-- 에러메세지 추가 -->
+                            <span class="error-message" id="current-password-error"></span>
                         </div>
                     </div>
 
@@ -56,6 +58,8 @@
                                 placeholder="새 비밀번호를 입력해 주세요"
                                 required
                             />
+                            <!-- 에러메세지 추가 -->
+                            <span class="error-message" id="new-password-error"></span>
                         </div>
                     </div>
 
@@ -72,6 +76,8 @@
                                 placeholder="새 비밀번호를 다시 입력해 주세요"
                                 required
                             />
+                            <!-- 에러메세지 추가 -->
+                            <span class="error-message" id="confirm-new-password-error"></span>
                         </div>
                     </div>
 
@@ -80,14 +86,22 @@
                         <div class="form-label">
                             <label for="name">이름</label>
                         </div>
-                        <div class="profile-edit-input">
+                        <div class="form-input">
                             <input type="text" id="name" name="name" />
+                            <!-- 에러메세지 추가 -->
+                            <span class="error-message" id="name-error"></span>
                         </div>
                     </div>
 
-                    <!-- 탈퇴하기, 수정하기 버튼 -->
-                    <button type="button" class="delete-button">탈퇴하기</button>
-                    <button type="submit" class="submit-button">수정하기</button>
+                    <!-- 탈퇴하기 버튼 -->
+                    <div class="delete">
+                        <button type="button" class="delete-button">탈퇴하기</button>
+                    </div>
+
+                    <!-- 수정하기 버튼 -->
+                    <div class="edit">
+                        <button type="submit" class="edit-button">수정하기</button>
+                    </div>
                 </form>
             </div>
 
