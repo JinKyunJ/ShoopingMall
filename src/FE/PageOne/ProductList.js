@@ -24,10 +24,3 @@ document.addEventListener('DOMContentLoaded', () => {
         OnScrollSection('more-details');
     });
 });
-
-/*
-버튼 클릭 이벤트예시
-const infoBtnClick = document.querySelector(".Category-Nav-btn:nth-child(1)");
-infoBtnClick.addEventListener('click',() =>{
-    document.getElementById("product-details").scrollIntoView({ behavior: 'smooth' });
-}); */

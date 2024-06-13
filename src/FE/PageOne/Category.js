@@ -1,5 +1,8 @@
-const ViewProductPage= document.querySelectorAll(".Product");
+//상수 영역 
+const CLOSETIME = 50000;
 
+//변수 영역
+const ViewProductPage= document.querySelectorAll(".Product");
 //페이지 이동 버튼
 ViewProductPage.forEach(product =>{
     product.addEventListener('click', ()=>{
@@ -7,25 +10,36 @@ ViewProductPage.forEach(product =>{
     });
 });
 
-
-const modelCloseTime = 50000;
-//장바구니 담기 버튼 클릭
+//담기 버튼 클릭
 document.addEventListener("DOMContentLoaded", ()=>{
+    //장바구니에 담기 버튼을 클릭할때 팝업 모달 동작
     document.querySelectorAll(".AddCart-btn").forEach(button =>{
         //모든 이벤트에 연결
         button.addEventListener('click',()=>{
-            
+
+            event.stopPropagation();// 이벤트 전파 중단
+
             //모달 객체를 가져오고 id를 찾아서
             const model = document.getElementById('CartModal');
-            model.classList.remove('hidden');
-            model.classList.add ('show');
-            
+            model.classList.remove('hidden'); //클래스를 지움
+            model.classList.add ('show'); //추가함
+
+            //closest는 selectors의 일치하는 가낭 가까운 상위요소를 찾는데 사용함. 일치하는 첫번째 부모 요소를 리턴함
+            const findElement = button.closest('.Product');
+
+            //텍스트 엘리멘트를 가져옴 나중에 디테일은 조금 바뀔거같음
+            const productName= findElement.querySelector('span').textContent;
+            const productPrice = findElement.querySelector('span[style*="font-weight:bold"]').textContent;
+
+            document.getElementById('ModalProductName').textContent = productName;
+            document.getElementById('ModalProductPrice').textContent = productPrice;
+
             //일정 시간 후에 모달을 자동으로 닫기
             setTimeout(()=>{
                 //기능 정의
                 model.classList.remove('show');
                 model.classList.add('hidden');
-            },modelCloseTime);
+            },CLOSETIME);
         });
     });
     //열려있는 모달 닫기 버튼
@@ -35,3 +49,5 @@ document.addEventListener("DOMContentLoaded", ()=>{
         modal.classList.add('hidden');
     });
 });
+
+//장바구니에 담기

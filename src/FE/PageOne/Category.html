@@ -10,7 +10,10 @@
     <div class="title">
         <div class="title-div">
             <p class="title-FontStyle">카테고리</p>
-            <button class="title-div-button">cart</button>
+            <div>
+                <button class="title-div-button">cart</button>
+                <p>0</p>
+            </div>
         </div>
         <nav class="Category-Nav">
             <div class="Category-Nav-div">
@@ -24,19 +27,30 @@
         </nav>
     </div>
     <div class="Category-List">
-        <!--상위 리스트 영역-->
-        <div class="Category-List-Index">
-            <div><!--제품 객체화 할거-->
-                <a class="Product">
+        <div class="Category-List-Index">        <!--상위 리스트 영역-->
+            <div>
+                <a class="Product"><!--제품 객체화 할거-->
                     <div class="Product-ImageContainer">
                         <img src="Img/Bg01.jpg" class="Product-Image">
                     </div>
-                    <div>
-                        <button class="AddCart-btn">장바구니에 담기</button>
+                    <div style="width: 100%">
+                        <button class="AddCart-btn">담기</button>
                     </div>
                     <div>
                         <span> 제품명1 </span>
                         <span style="font-weight:bold "> 2,000원 </span>
+                    </div>
+                </a>
+                <a class="Product"><!--제품 객체화 할거-->
+                    <div class="Product-ImageContainer">
+                        <img src="Img/Bg01.jpg" class="Product-Image">
+                    </div>
+                    <div style="width: 100%">
+                        <button class="AddCart-btn">담기</button>
+                    </div>
+                    <div>
+                        <span> 제품명2 </span>
+                        <span style="font-weight:bold "> 3,000원 </span>
                     </div>
                 </a>
             </div>
@@ -48,9 +62,11 @@
             <div>
                 <p>제품 정보</p>>
                 <img src="Img/Bg01.jpg" class="">
+                <p id="ModalProductName">제품 이름</p>
+
             </div>
             <div>
-                가격  수량 선택 텝
+                <p id="ModalProductPrice">제품 가격</p>
             </div>
             <button class="ButtonModel-btnClose" id="ButtonModel-btnClose"> 장바구니에 담기 </button>
         </div>

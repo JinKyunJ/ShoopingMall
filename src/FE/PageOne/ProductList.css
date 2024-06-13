@@ -3,7 +3,6 @@
     margin: 0;
     padding: 0;
     list-style-type: none;
-    box-sizing: border-box; /* 패딩과 테두리를 포함하여 요소의 크기를 계산 */
 }
 html, body {
     width: 100%;
@@ -12,27 +11,23 @@ html, body {
 }
 
 /* 제목 스타일 */
-.title{
-    position : fixed;
-    z-index: 10;
-    width: 100%;
-}
-.title-div{
+.title-div {
     background-color: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 24px 48px;
 }
-.title-FontStyle{
+.title-FontStyle {
     font-size: 50px;
     font-weight: bold;
-    color: rgb(251,146,60);
+    color: rgb(251, 146, 60);
 }
-.title-div-button{
+.title-div-button {
     width: 60px;
     height: 60px;
 }
+
 /* 카테고리 네비게이션 스타일 */
 .Category-Nav {
     background-color: white;
@@ -57,19 +52,26 @@ html, body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 20px;
 }
 
 .Product-View {
     width: 100%;
+    max-width: 1200px;
     background-color: white;
     display: flex;
     flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    border-radius: 10px;
 }
 
 .Product-ImageContainer {
     width: 100%;
     padding-top: 75%; /* 4:3 비율 유지 */
     position: relative;
+    overflow: hidden;
+    border-radius: 10px;
 }
 
 .Product-Image {
@@ -88,7 +90,7 @@ html, body {
 }
 
 .Product-View p.large-text {
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     font-weight: bold;
 }
 

@@ -171,17 +171,23 @@ body {
     text-align: left; /* 왼쪽 정렬 */
     width: 100%; /* 부모의 전체 너비를 차지 */
 }
+.AddCart-btn {
+    z-index: 10; /* 버튼이 클릭 가능하도록 z-index 조정 */
+    width: 100%;
+    position: relative; /* 버튼이 부모 요소와 겹치지 않도록 설정 */
+}
 
 /* 모달 스타일 */
 .ButtonModal  {
     position: fixed;
     bottom: 0;
     width: 100%;
-    background-color: teal;
-    color: white;
+    background-color: white;
+    color: black;
     text-align: center;
     border-radius: 10px 10px 0 0;
     visibility: hidden;
+    box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.3); /* 그림자 추가 */
     z-index: 11; /* 제목보다 위에 표시되도록 설정 */
 }
 .ButtonModal-content {
@@ -193,6 +199,7 @@ body {
     padding :20px;
     color: white;
     border: none;
+    border-radius: 10px;
     background-color: darkorange;
 }
 
