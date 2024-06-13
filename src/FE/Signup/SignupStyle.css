@@ -68,7 +68,7 @@ body {
     text-align: left; /* 라벨 왼쪽 정렬 */
 }
 
-.signup-id-label span,
+.signup-email-label span,
 .signup-password-label span,
 .signup-confirm-password-label span,
 .signup-name-label span,
