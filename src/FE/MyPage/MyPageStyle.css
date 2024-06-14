@@ -199,14 +199,10 @@ body {
     font-weight: 600;
 }
 
-/* 로그아웃 스타일 */
+/* 로그아웃 버튼 스타일 */
 .logout-button {
     text-align: start;
     margin-top: 30px;
-}
-
-.logout-button button {
-    /* 로그아웃 버튼 스타일 */
     border: none;
     background: none;
     color: rgb(251, 146, 60);
