@@ -3,13 +3,12 @@ document.addEventListener("DOMContentLoaded", (event) => {
   const SearchForm = document.getElementById("SearchForm");
   const SearchBox = document.getElementsByClassName("Search-Box")[0];
   const searchList = localStorage.getItem("recentSearch");
-  const DeleteBtn = document.getElementById("DeleteBtn");
   let searchArray = [];
 
   // localstorage에 최근검색어 있을 경우 searchArray 배열에 저장
   if (searchList) {
     JSON.parse(searchList).forEach((word) => {
-      searchArray.unshift(word);
+      searchArray.push(word);
     });
   }
 
@@ -75,7 +74,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   function ShowRecentSearch() {
     const RecentArea = document.getElementById("RecentSearchList");
     let html = "";
-
+    console.log(searchArray);
     searchArray.forEach((word) => {
       html += `
         <li><a href="/search?s-word=${word}">${word}</a></li>
