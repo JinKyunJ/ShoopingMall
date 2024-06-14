@@ -9,7 +9,9 @@ document.addEventListener('DOMContentLoaded', async () => {
             document.getElementById('email').value = userInfo.email;
             document.getElementById('name').value = userInfo.name;
         } else {
+            const errorData = await response.json();
             alert('사용자 정보를 불러오는데 실패했습니다.');
+            throw new Error(errorData.message || '사용자 정보 불러오기 실패');
         }
     } catch (error) {
         console.error('오류:', error);
@@ -140,7 +142,9 @@ OnconfirmDeleteButton.addEventListener('click', async (event) => {
             alert('회원 탈퇴가 완료되었습니다.');
             window.location.href = '/home';
         } else {
+            const errorData = await response.json();
             alert('탈퇴 처리에 실패했습니다. 다시 시도해주세요.');
+            throw new Error(errorData.message || '탈퇴 처리 실패');
         }
     } catch (error) {
         console.error('오류 발생:', error);
@@ -178,7 +182,9 @@ profileEditForm.addEventListener('submit', async (event) => {
             alert('사용자 정보가 수정되었습니다.');
             window.location.href = '/home';
         } else {
+            const errorData = await response.json();
             alert('사용자 정보 수정에 실패했습니다. 다시 시도해주세요.');
+            throw new Error(errorData.message || '사용자 정보 수정 실패');
         }
     } catch (error) {
         console.error('오류:', error);
