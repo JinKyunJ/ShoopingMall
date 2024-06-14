@@ -13,6 +13,8 @@ ViewProductPage.forEach(product =>{
 
 //담기 버튼 클릭
 document.addEventListener("DOMContentLoaded", ()=>{
+    //처음에 로드될때 영역 
+    initializeCartCounter();
     //장바구니에 담기 버튼을 클릭할때 팝업 모달 동작
     document.querySelectorAll(".AddCart-btn").forEach(button =>{
         //모든 이벤트에 연결
@@ -71,10 +73,13 @@ document.addEventListener("DOMContentLoaded", ()=>{
     });
 });
 
+function initializeCartCounter() {
+    const cart = JSON.parse(localStorage.getItem('cart'));
+    const counterElement = document.querySelector('.cart-counter');
+    counterElement.textContent = cart.length;
+}
 //장바구니에 담기
 //SPA 싱글페이지 어플리케이션 컴포넌트만 불러와서 랜더링 되는 방식.
 
 //장바구니의 관점에서는 카운트가 유지되는게 맞다.
 //웹을 켯을때도 유지가 되어야한다.
-
-document.body.innerHTML
