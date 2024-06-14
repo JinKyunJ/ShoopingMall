@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
     //열려있는 모달 닫기 버튼
     document.getElementById("ButtonModel-btnClose").addEventListener('click', () => {
         const modal = document.getElementById("CartModal");
-        modal.classList.remove('show');
+        modal.classList.remove('show');a
         modal.classList.add('hidden');
 
         //제품 정보 컨트롤하기위해 변수 가져옴
