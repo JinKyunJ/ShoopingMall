@@ -40,8 +40,9 @@ OnLoginForm.addEventListener('submit', async (event) => {
             throw new Error(errorData.message || '로그인 실패');
         }
     } catch (error) {
-        alert(error.message);
-        throw new Error(`로그인 처리 중 오류 발생: ${error.message}`);
+        /** 콘솔에서 확인하기 위해 console.error() */
+        console.error('오류 발생:', error);
+        alert('오류가 발생했습니다. 나중에 다시 시도해주세요');
     }
 });
 

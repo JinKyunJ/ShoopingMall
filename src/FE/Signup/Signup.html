@@ -9,15 +9,9 @@
     <body>
         <div class="container">
             <div class="head-container">
-                <div class="head-back-button">
-                    <button>back</button>
-                </div>
-                <div class="head-title-name">
-                    <h1>회원가입</h1>
-                </div>
-                <div class="head-cart-button">
-                    <button>cart</button>
-                </div>
+                <button class="head-back-button">back</button>
+                <h1 class="head-title-name">회원가입</h1>
+                <button class="head-cart-button">cart</button>
             </div>
 
             <div>
@@ -25,10 +19,10 @@
                     <div class="signup-container">
                         <div class="signup-control">
                             <!-- 아이디(이메일) 및 중복확인 -->
-                            <div class="signup-email-label">
+                            <div class="signup-label">
                                 <label>아이디(이메일) <span>*</span></label>
                             </div>
-                            <div class="signup-input-button">
+                            <div class="signup-input-wrap">
                                 <div class="signup-input">
                                     <input
                                         class="email-input"
@@ -38,6 +32,8 @@
                                         placeholder="아이디를 입력해주세요"
                                         required
                                     />
+                                    <!-- 에러메세지 추가 -->
+                                    <span class="error-message" id="email-error"></span>
                                 </div>
                                 <button class="confirm-button" type="button">중복확인</button>
                             </div>
@@ -45,10 +41,10 @@
                     </div>
 
                     <!-- 비밀번호 -->
-                    <div class="signup-password-label">
+                    <div class="signup-label">
                         <label>비밀번호 <span>*</span></label>
                     </div>
-                    <div class="signup-input-button">
+                    <div class="signup-input-wrap">
                         <div class="signup-input">
                             <input
                                 class="password-input"
@@ -58,14 +54,16 @@
                                 placeholder="비밀번호를 입력해주세요"
                                 required
                             />
+                            <!-- 에러메세지 추가 -->
+                            <span class="error-message" id="password-error"></span>
                         </div>
                     </div>
 
                     <!-- 비밀번호확인 -->
-                    <div class="signup-confirm-password-label">
+                    <div class="signup-label">
                         <label>비밀번호확인 <span>*</span></label>
                     </div>
-                    <div class="signup-input-button">
+                    <div class="signup-input-wrap">
                         <div class="signup-input">
                             <input
                                 class="confirm-password-input"
@@ -75,14 +73,16 @@
                                 placeholder="비밀번호를 한번 더 입력해주세요"
                                 required
                             />
+                            <!-- 에러메세지 추가 -->
+                            <span class="error-message" id="confirm-password-error"></span>
                         </div>
                     </div>
 
                     <!-- 이름 -->
-                    <div class="signup-name-label">
+                    <div class="signup-label">
                         <label>이름 <span>*</span></label>
                     </div>
-                    <div class="signup-input-button">
+                    <div class="signup-input-wrap">
                         <div class="signup-input">
                             <input
                                 class="name-input"
@@ -92,14 +92,16 @@
                                 placeholder="이름을 입력해 주세요"
                                 required
                             />
+                            <!-- 에러메세지 추가 -->
+                            <span class="error-message" id="name-error"></span>
                         </div>
                     </div>
 
                     <!-- 주소 -->
-                    <div class="signup-address-label">
+                    <div class="signup-label">
                         <label>주소 <span>*</span></label>
                     </div>
-                    <div class="signup-input-button">
+                    <div class="signup-input-wrap">
                         <div class="signup-input">
                             <input
                                 class="address-input"
