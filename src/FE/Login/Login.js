@@ -30,6 +30,12 @@ OnLoginForm.addEventListener('submit', async (event) => {
             /** 서버 응답 처리 */
             const data = await response.json();
             console.log('로그인 성공:', data);
+
+            /** 로컬 스토리지에 JWT 토큰 저장 */
+            const token = data.token;
+            localStorage.setItem('jwtToken', token);
+            // ('key값-수정&삭제', value값-저장): 새로 고침, 브라우저 닫고 열어도 토근 유지
+
             /** 로그인 성공 시 랜딩 페이지로 이동 */
             window.location.href = '/landing-page';
         } else {
