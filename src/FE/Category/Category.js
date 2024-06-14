@@ -1,4 +1,4 @@
-//상수 영역 
+//상수 영역
 const CLOSETIME = 50000;
 
 //변수 영역
@@ -7,13 +7,13 @@ const ViewProductPage= document.querySelectorAll(".Product");
 //페이지 이동 버튼
 ViewProductPage.forEach(product =>{
     product.addEventListener('click', ()=>{
-        window.location.href = "ProductList.html";
+        window.location.href = "../ProductList/ProductList.html"; //상대경로는 ..찍고 가자 절대경로 연결 안될수도있음
     });
 });
 
 //담기 버튼 클릭
 document.addEventListener("DOMContentLoaded", ()=>{
-    //처음에 로드될때 영역 
+    //처음에 로드될때 영역
     initializeCartCounter();
     //장바구니에 담기 버튼을 클릭할때 팝업 모달 동작
     document.querySelectorAll(".AddCart-btn").forEach(button =>{
@@ -44,6 +44,10 @@ document.addEventListener("DOMContentLoaded", ()=>{
                 model.classList.add('hidden');
             },CLOSETIME);
         });
+    });
+
+    document.querySelector(".title-div-button").addEventListener('click', () => {
+        window.location.href = "../Cart/AddCartPage.html";
     });
 
     //열려있는 모달 닫기 버튼
