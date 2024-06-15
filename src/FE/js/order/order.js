@@ -68,23 +68,31 @@ document.addEventListener("DOMContentLoaded", function () {
   // 적립금 사용했을 경우 기존 적립금 - 사용한 적립금 값 구해서 서버에 전달해야 하나??
   const useAllMileageBtn = document.getElementById("use-all-mileage");
   const mileageInput = document.getElementById("use-mileage-input");
-  const mileage = document.getElementsByName("mileage")[0].value;
+  let mileage = document.getElementsByName("mileage")[0].value;
+  const userMileage = document.getElementById("user-mileage");
 
   // 적립금 모두사용 버튼 눌렀을 때
   useAllMileageBtn.addEventListener("click", () => {
     mileageInput.value = mileage;
+    userMileage.innerText = 0;
   });
 
   // 사용 적립금 입력 시 사용가능 적립금 반영
-  mileageInput.addEventListener("change", () => {
+  mileageInput.addEventListener("input", () => {
+    if(!mileageInput.value) {
+      mileageInput.value = 0;
+    }
+    
     if (mileageInput.value < 0) {
       alert("정수를 입력해주세요.");
       mileageInput.value = 0;
       return false;
     }
 
-    let result = parseInt(mileage) - parseInt(mileageInput.value);
-    const userMileage = document.getElementById("user-mileage");
+
+    mileageInput.value = mileageInput.value.replace(/^0+/, '');
+
+    let result = parseInt(mileage - mileageInput.value);
 
     if (result < 0) {
       result = mileage;
