@@ -1,0 +1,101 @@
+/* main 페이지 공통*/
+main {
+  width: 100%;
+}
+main section {
+  padding: 0px 1.125rem;
+}
+main section.main-slide {
+  padding: 0;
+}
+/* // main 페이지 공통*/
+
+/* 메인 슬라이드 */
+.main-slide .swiper {
+  width: 100%;
+}
+.main-slide .swiper img {
+  width: 100%;
+}
+.main-slide .swiper-pagination {
+  bottom: 10px;
+}
+/* // 메인 슬라이드 */
+
+/* 상품진열 */
+.main-product .title-box {
+  position: relative;
+  padding: 16px 0;
+}
+.main-product .title-box h2 {
+  font-size: 18px;
+}
+.main-product .title-box a {
+  position: absolute;
+  right: 0;
+  top: 14px;
+  font-size: 14px;
+}
+.main-product .product-box {
+  overflow: hidden;
+  width: 100%;
+}
+.main-product .product-box .Goods-Image img {
+  width: 100%;
+  border-radius: 4px;
+}
+.main-product .product-box .Cart-Btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background: #fff;
+  border: 1px solid rgb(221, 221, 221);
+  line-height: 32px;
+  border-radius: 4px;
+  margin-top: 8px;
+}
+.main-product .goods-info {
+  padding: 10px 0 20px;
+}
+.main-product .goods-info .title {
+  margin-bottom: 4px;
+}
+.main-product .goods-info .price {
+  font-size: 12px;
+  color: rgb(181, 181, 181);
+  text-decoration: line-through;
+}
+.main-product .goods-info .dc-price {
+  display: flex;
+  font-weight: bold;
+  color: #333;
+  font-size: 14px;
+}
+.main-product .goods-info .percent {
+  color: var(--main-color);
+  margin-right: 6px;
+}
+.main-product .goods-info .dc-price .price {
+  color: #333;
+  font-size: 14px;
+  text-decoration: none;
+}
+.main-product .goods-info .review {
+  font-size: 12px;
+  color: rgb(181, 181, 181);
+}
+.main-product .goods-info .review svg {
+  vertical-align: middle;
+}
+/* //상품진열 */
+
+/* 중간 배너 */
+.Banner {
+  background: rgb(247, 227, 52);
+  min-height: 22vw;
+}
+.Banner img {
+  width: 100%;
+}
+/* //중간 배너 */

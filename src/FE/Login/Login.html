@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>로그인</title>
+        <link rel="stylesheet" href="LoginStyle.css" />
+    </head>
+    <body>
+        <div class="container">
+            <div class="head-container">
+                <div class="head-x-button">
+                    <button>X</button>
+                </div>
+                <div class="head-title-name">
+                    <h1>로그인</h1>
+                </div>
+            </div>
+
+            <div>
+                <form id="login-form">
+                    <div class="id-password-container">
+                        <div class="id-password-control">
+                            <label for="id-input">
+                                <input
+                                    class="id-input"
+                                    id="id-input"
+                                    type="email"
+                                    name="id"
+                                    placeholder="아이디 입력"
+                                    required
+                                />
+                            </label>
+                        </div>
+                        <div class="id-password-control">
+                            <label for="password-input">
+                                <input
+                                    class="password-input"
+                                    id="password-input"
+                                    type="password"
+                                    name="password"
+                                    placeholder="비밀번호 입력"
+                                    required
+                                />
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="checkbox">
+                        <label for="checkbox-input">
+                            <input class="checkbox-input" id="checkbox-input" type="checkbox" checked />
+                            <span>아이디 저장</span>
+                        </label>
+                    </div>
+
+                    <div class="login-signup">
+                        <button class="login-button" type="submit">로그인</button>
+                        <button class="signup-button" type="button">회원가입</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <script src="Login.js"></script>
+    </body>
+</html>
