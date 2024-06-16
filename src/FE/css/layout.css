@@ -76,7 +76,6 @@ footer .CS-Box .CS {
   color: var(--main-color);
 }
 
-
 /* content-header */
 .content-header {
   position: fixed;
@@ -86,7 +85,6 @@ footer .CS-Box .CS {
   width: 100%;
   box-sizing: border-box;
   background: var(--main-color);
-
 }
 .content-header h2 {
   color: #fff;
@@ -94,6 +92,8 @@ footer .CS-Box .CS {
   font-weight: normal;
   line-height: 50px;
   text-align: center;
+  margin: 0;
+  padding: 0;
 }
 .content-header .back {
   position: absolute;
