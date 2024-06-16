@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", (event) => {
   const input = document.getElementById("s-word");
-  const SearchForm = document.getElementById("SearchForm");
-  const SearchBox = document.getElementsByClassName("Search-Box")[0];
+  const searchForm = document.getElementById("searchForm");
+  const searchBox = document.getElementById("searchBox");
   const searchList = localStorage.getItem("recentSearch");
   let searchArray = [];
 
@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   }
 
   // 검색했을 때 로컬스토리지에 검색어, 주소 저장
-  function SetLocalStorage(e) {
+  function onSearchFormSubmit(e) {
     // 검색어가 없을 때
     if (!input.value) {
       alert("검색어를 입력해주세요.");
@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
       return false;
     }
 
-    // 최근 검색어 최대 갯수
+    // 최근 검색어 최대 7개만 저장
     searchArray.length = 7;
 
     // 최근 검색어 중복 삭제
@@ -41,38 +41,38 @@ document.addEventListener("DOMContentLoaded", (event) => {
   function CreateRecentArea() {
     const RecentSearch = document.createElement("section");
     let html = "";
-    RecentSearch.className = "Recent-Search";
+    RecentSearch.className = "recent-search";
 
     html += `
-      <div class="Recent-Search">
-        <div class="Title-Box">
+      <div class="recent-search">
+        <div class="title-box">
           <h2>최근 검색어</h2>
-          <button type="button" id="DeleteBtn">
+          <button type="button" id="deleteBtn">
             <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#5f6368"><path d="M480-424 284-228q-11 11-28 11t-28-11q-11-11-11-28t11-28l196-196-196-196q-11-11-11-28t11-28q11-11 28-11t28 11l196 196 196-196q11-11 28-11t28 11q11 11 11 28t-11 28L536-480l196 196q11 11 11 28t-11 28q-11 11-28 11t-28-11L480-424Z"/></svg>
           </button>
         </div>
-        <ul id="RecentSearchList" class="Search-List Recent-List">
+        <ul id="recentSearchList" class="search-list recent-list">
         </ul>
       </div>    
     `;
 
     RecentSearch.innerHTML = html;
-    SearchBox.after(RecentSearch);
+    searchBox.after(RecentSearch);
 
     // 최근 검색어 모두 삭제
     function DeleteList(e) {
       e.preventDefault();
       alert("최근 검색어가 모두 삭제됩니다.");
-      const RecentArea = document.getElementsByClassName("Recent-Search")[0];
+      const RecentArea = document.getElementsByClassName("recent-search")[0];
       RecentArea.remove();
       localStorage.removeItem("recentSearch");
     }
-    document.getElementById("DeleteBtn").addEventListener("click", DeleteList);
+    document.getElementById("deleteBtn").addEventListener("click", DeleteList);
   }
 
   // 로컬스토리지에 있는 최근검색어 노출
   function ShowRecentSearch() {
-    const RecentArea = document.getElementById("RecentSearchList");
+    const RecentArea = document.getElementById("recentSearchList");
     let html = "";
     console.log(searchArray);
     searchArray.forEach((word) => {
@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     RecentArea.innerHTML = html;
   }
 
-  SearchForm.addEventListener("submit", SetLocalStorage);
+  searchForm.addEventListener("submit", onSearchFormSubmit);
   if (searchList) {
     CreateRecentArea();
     ShowRecentSearch();
