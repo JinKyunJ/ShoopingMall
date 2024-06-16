@@ -1,41 +1,37 @@
 document.addEventListener("DOMContentLoaded", function () {
   // 주문상품 서버에서 불러오기
   const fetchOrderProducts = async () => {
-    try {
-      const response = await fetch("", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      if (response.ok) {
-        const data = await response.json();
-        const orderProducs = data.order_products;
-        const orderList = document.querySelector(".order-list");
-        let html = "";
-        orderProducs.forEach(({ price, sale, image, title }) => {
-          html += `
-            <li>
-              <div class="img-box">
-                <img src="${image}" alt="${title}" />
-              </div>
-              <div class="info-box">
-                <p class="product-title">${title}</p>
-                <div>
-                  <b class="price">${price * ((100 - sale) / 100)}원</b
-                  ><span class="fixed-price">${price}원</span> | n개
-                </div>
-              </div>
-            </li>
-          `;
-        });
-
-        orderList.innerHtml = html;
-      }
-    } catch (error) {
-      orderList.innerText = "오류로 인해 상품을 불러오지 못했습니다.";
-      console.log(error);
+    const response = await fetch("", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    if (response.ok) {
+      const data = await response.json();
+      const orderProducs = data.order_products;
+      const orderList = document.querySelector(".order-list");
+      orderList.innerHtml = orderProducs.map(createProductHTML).join("");
     }
+  };
+
+  // 주문상품 HTML 만들기
+  const createProductHTML = function ({ price, sale, image, title }) {
+    const salePrice = price * ((100 - sale) / 100);
+    return `
+          <li>
+            <div class="img-box">
+              <img src="${image}" alt="${title}" />
+            </div>
+            <div class="info-box">git 
+              <p class="product-title">${title}</p>
+              <div>
+                <b class="price">${salePrice}원</b
+                ><span class="fixed-price">${price}원</span> | n개
+              </div>
+            </div>
+          </li>
+        `;
   };
 
   // 주문자 정보 서버에서 불러오기
@@ -79,18 +75,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // 사용 적립금 입력 시 사용가능 적립금 반영
   mileageInput.addEventListener("input", () => {
-    if(!mileageInput.value) {
+    if (!mileageInput.value) {
       mileageInput.value = 0;
     }
-    
+
     if (mileageInput.value < 0) {
       alert("정수를 입력해주세요.");
       mileageInput.value = 0;
       return false;
     }
 
-
-    mileageInput.value = mileageInput.value.replace(/^0+/, '');
+    mileageInput.value = mileageInput.value.replace(/^0+/, "");
 
     let result = parseInt(mileage - mileageInput.value);
 
