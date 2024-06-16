@@ -36,35 +36,30 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // 주문자 정보 서버에서 불러오기
   const fetchUserInfo = async () => {
-    try {
-      const response = fetch("", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      const data = await response.json();
-      const { email, name, address } = data.user;
-      const userName = document.getElementById("user-name");
-      const userEmail = document.getElementById("user-email");
-      const userAddress = document.getElementById("user-address");
+    const response = fetch("", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const data = await response.json();
+    const { email, name, address } = data.user;
+    const userName = document.getElementById("user-name");
+    const userEmail = document.getElementById("user-email");
+    const userAddress = document.getElementById("user-address");
 
-      // 적립금은 어떻게 가져오는지 물어보기...
-      const userMileage = document.getElementById("user-mileage");
+    // 적립금은 어떻게 가져오는지 물어보기...
+    const userMileage = document.getElementById("user-mileage");
 
-      userName.innerText = name;
-      userEmail.innerText = email;
-      userAddress.innerText = address;
-      userMileage.innerText = "";
-    } catch (error) {
-      console.log(error);
-    }
+    userName.innerText = name;
+    userEmail.innerText = email;
+    userAddress.innerText = address;
+    userMileage.innerText = "";
   };
 
-  // 적립금 사용했을 경우 기존 적립금 - 사용한 적립금 값 구해서 서버에 전달해야 하나??
   const useAllMileageBtn = document.getElementById("use-all-mileage");
   const mileageInput = document.getElementById("use-mileage-input");
-  let mileage = document.getElementsByName("mileage")[0].value;
+  let mileage = document.getElementById("mileage").value;
   const userMileage = document.getElementById("user-mileage");
 
   // 적립금 모두사용 버튼 눌렀을 때
