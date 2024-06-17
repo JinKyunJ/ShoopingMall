@@ -1,4 +1,3 @@
-//상수 영역
 const CLOSETIME = 50000;
 
 //변수 영역
@@ -42,7 +41,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
                 //기능 정의
                 model.classList.remove('show');
                 model.classList.add('hidden');
-            },CLOSETIME);
+            },50000);
         });
     });
 
@@ -53,7 +52,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
     //열려있는 모달 닫기 버튼
     document.getElementById("ButtonModel-btnClose").addEventListener('click', () => {
         const modal = document.getElementById("CartModal");
-        modal.classList.remove('show');a
+        modal.classList.remove('show');
         modal.classList.add('hidden');
 
         //제품 정보 컨트롤하기위해 변수 가져옴
@@ -68,17 +67,20 @@ document.addEventListener("DOMContentLoaded", ()=>{
         };
 
         //cart 키로 잡아서
-        let cart = JSON.parse(localStorage.getItem('cart'));
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
         cart.push(productDetails);
         localStorage.setItem('cart', JSON.stringify(cart));
 
         const counterElement = document.querySelector('.cart-counter');
-        counterElement.textContent = cart.length;
+        counterElement.textContent = cart.length; //카운트 변경
     });
 });
 
+/*
+* 페이지가 새로고침되거나 처음 오픈될때
+*/
 function initializeCartCounter() {
-    const cart = JSON.parse(localStorage.getItem('cart'));
+    const cart = JSON.parse(localStorage.getItem('cart')) || []; //에러가 아래 랭스에서 나는데 빈배열인지 체크해야한다고함.
     const counterElement = document.querySelector('.cart-counter');
     counterElement.textContent = cart.length;
 }
