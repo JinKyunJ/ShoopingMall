@@ -1,3 +1,5 @@
+import { checkEmail, searchAddress, signupUser } from './common/remotes.js';
+
 /** back 버튼 클릭 시 홈으로 이동 */
 const onBackButton = document.querySelector('.head-back-button');
 
@@ -33,29 +35,14 @@ onConfirmButton.addEventListener('click', async () => {
     }
 
     try {
-        const response = await fetch('/check-email', {
-            method: 'POST',
-            body: JSON.stringify({ email }),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        });
-
-        if (response.ok) {
-            const data = await response.json();
-            if (data.exists) {
-                alert('중복된 아이디(이메일)입니다. 다시 입력해주세요.');
-            } else {
-                alert('사용 가능한 아이디(이메일)입니다.');
-            }
+        const data = await checkEmail(email);
+        if (data.exists) {
+            alert('중복된 아이디(이메일)입니다. 다시 입력해주세요.');
         } else {
-            /** 오류 처리 */
-            const errorData = await response.json();
-            alert('회원가입에 실패했습니다.');
-            throw new Error(errorData.message || '회원가입 실패');
+            alert('사용 가능한 아이디(이메일)입니다.');
         }
     } catch (error) {
-        alert('오류가 발생했습니다. 나중에 다시 시도해주세요.');
+        alert(error.message);
     }
 });
 
@@ -73,9 +60,9 @@ if (passwordInput) {
             errorSpan.textContent = '10자 이상 입력해주세요.';
         } else {
             /** 영문, 숫자, 특수문자(공백 제외) 포함 여부 확인 / 정규표현식 사용 */
-            const hasLetter = /[a-zA-Z]/.test(newPassword); // 영문자 포함 여부
-            const hasNumber = /[0-9]/.test(newPassword); // 숫자 포함 여부
-            const hasSpecialChar = /[^a-zA-Z0-9]/.test(newPassword); // 특수 문자 포함 여부
+            const hasLetter = /[a-zA-Z]/.test(password); // 영문자 포함 여부
+            const hasNumber = /[0-9]/.test(password); // 숫자 포함 여부
+            const hasSpecialChar = /[^a-zA-Z0-9]/.test(password); // 특수 문자 포함 여부
             const isValidCombination = [hasLetter, hasNumber, hasSpecialChar].filter(Boolean).length >= 2;
             // filter() 이용해서 각각 2개 이상 조합 참, 거짓인지 확인
 
@@ -104,7 +91,7 @@ if (confirmPasswordInput && passwordInput) {
 }
 
 /** 이름 필드 검증 */
-const nameInput = document.getElementById('name');
+const nameInput = document.getElementById('name-input');
 /** 에러 메시지 태그 */
 const errorSpan = document.getElementById('name-error');
 
@@ -126,24 +113,17 @@ const addressInput = document.getElementById('address-input');
 onSearchIcon.addEventListener('click', async (event) => {
     event.preventDefault();
 
-    const address = addressInput.value;
+    const address = addressInput.value; // 사용자가 입력한 검색어 저장
+
     try {
-        const response = await fetch(`/search-address?q=${address}`);
-        if (response.ok) {
-            const data = await response.json();
-            if (data.length > 0) {
-                addressInput.value = [0].address;
-            } else {
-                alert('검색 결과가 없습니다.');
-            }
+        const data = await searchAddress(address); // 검색어로 주소 검색
+        if (data.length > 0) {
+            addressInput.value = data[0].address; // 검색 결과 중 첫 번째 주소 입력필드에 할당
         } else {
-            /** 오류 처리 */
-            const errorData = await response.json();
-            alert('주소 검색에 실패했습니다. 나중에 다시 시도해주세요.');
-            throw new Error(errorData.message || '주소 검색 실패');
+            alert('검색 결과가 없습니다.');
         }
     } catch (error) {
-        alert('오류가 발생했습니다. 나중에 다시 시도해주세요.');
+        alert(error.message);
     }
 });
 
@@ -165,24 +145,10 @@ onSignupForm.addEventListener('submit', async (event) => {
     }
 
     try {
-        const response = await fetch('/signup', {
-            method: 'POST',
-            body: JSON.stringify({ email, password, name, address }),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        });
-
-        if (response.ok) {
-            alert('회원가입이 성공적으로 완료되었습니다.');
-            window.location.href = '../Login/Login.html'; // 회원가입 후 로그인 페이지로 이동
-        } else {
-            /** 오류 처리 */
-            const errorData = await response.json();
-            alert('회원가입 중 오류가 발생했습니다. 다시 시도해주세요.');
-            throw new Error(errorData.message || '회원가입 실패');
-        }
+        await signupUser(email, password, name, address);
+        alert('회원가입이 성공적으로 완료되었습니다.');
+        window.location.href = '../Login/Login.html'; // 회원가입 후 로그인 페이지로 이동
     } catch (error) {
-        alert('오류가 발생했습니다. 나중에 다시 시도해주세요.');
+        alert(error.message);
     }
 });
