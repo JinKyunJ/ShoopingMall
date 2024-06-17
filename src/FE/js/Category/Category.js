@@ -7,7 +7,7 @@ const ViewProductPage= document.querySelectorAll(".Product");
 //페이지 이동 버튼
 ViewProductPage.forEach(product =>{
     product.addEventListener('click', ()=>{
-        window.location.href = "../ProductList/ProductList.html"; //상대경로는 ..찍고 가자 절대경로 연결 안될수도있음
+        window.location.href = "../../ProductList/ProductList.html"; //상대경로는 ..찍고 가자 절대경로 연결 안될수도있음
     });
 });
 
@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
     });
 
     document.querySelector(".title-div-button").addEventListener('click', () => {
-        window.location.href = "../Cart/AddCartPage.html";
+        window.location.href = "../../Cart/AddCartPage.html";
     });
 
     //열려있는 모달 닫기 버튼
