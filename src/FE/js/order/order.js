@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     userName.innerText = name;
     userEmail.innerText = email;
-    userAddress.innerText = address;
+    userAddress.value = address;
     userMileage.innerText = "";
   };
 
