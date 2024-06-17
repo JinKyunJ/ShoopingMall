@@ -2,7 +2,16 @@ function loadHTML(selector, url) {
     fetch(url)
         .then((response) => response.text())
         .then((data) => {
-            document.querySelector(selector).innerHTML = data;
+            const element = document.querySelector(selector);
+            if (element) {
+                element.innerHTML = data;
+                // 헤더가 로드된 후 카트 카운터 초기화
+                if (selector === 'header') {
+                    initializeCartCounter();
+                }
+            } else {
+                console.error("Element not found: ", selector);
+            }
         });
 }
 
