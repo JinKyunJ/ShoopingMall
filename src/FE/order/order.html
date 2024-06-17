@@ -12,7 +12,17 @@
     <header></header>
     <div class="content-header">
       <a href="javascript:void(0);" class="back" onclick="history.go(-1)">
-        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff"><path d="m438-480 164 164q11 11 11 25.5T602-265q-11 11-25.5 11t-25.84-11.34L361-455q-5-5.4-7.5-11.7-2.5-6.3-2.5-13.5t2.5-13.5Q356-500 361-505l189.66-189.66Q562-706 576.5-706t25.5 11q11 11 11 25.5T602-644L438-480Z"/></svg>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="24px"
+          viewBox="0 -960 960 960"
+          width="24px"
+          fill="#fff"
+        >
+          <path
+            d="m438-480 164 164q11 11 11 25.5T602-265q-11 11-25.5 11t-25.84-11.34L361-455q-5-5.4-7.5-11.7-2.5-6.3-2.5-13.5t2.5-13.5Q356-500 361-505l189.66-189.66Q562-706 576.5-706t25.5 11q11 11 11 25.5T602-644L438-480Z"
+          />
+        </svg>
       </a>
       <h2>주문하기</h2>
       <ul>
@@ -38,7 +48,7 @@
       <form action="/order" name="order-form" method="post">
         <input type="hidden" name="total-order-price" value="" />
         <!-- 마일리지 테스트 값 2000 -->
-        <input type="hidden" name="mileage" value="2000" />
+        <input type="hidden" name="mileage" id="mileage" value="2000" />
         <section class="order-product">
           <div class="title-box toggle-title">
             <h2>주문상품</h2>
@@ -94,13 +104,34 @@
           </div>
         </section>
 
+        <section class="receiver-info">
+          <div class="title-box">
+            <h2>수령자 정보</h2>
+          </div>
+          <div class="content-box">
+            <dl>
+              <dt>받는 분</dt>
+              <dd><input type="text" name="[receiver][name]" /></dd>
+            </dl>
+            <dl>
+              <dt>연락처</dt>
+              <dd><input type="text" name="[receiver][phone]" /></dd>
+            </dl>
+          </div>
+        </section>
+
         <section class="user-address">
           <div class="title-box">
             <h2>배송지</h2>
           </div>
           <div class="content-box">
             <p>
-              <strong id="user-address">서울 마포구 @@로 @길 11 1층</strong>
+              <input
+                id="user-address"
+                name="[receiver][address]"
+                type="text"
+                value="서울 마포구 @@로 @길 11 1층"
+              />
             </p>
           </div>
         </section>
@@ -127,7 +158,12 @@
               <dd><b id="user-mileage">0</b>원</dd>
             </dl>
             <div class="mileage-input-box">
-              <input type="number" id="use-mileage-input" valule="0" placeholder="0" />
+              <input
+                type="number"
+                id="use-mileage-input"
+                valule="0"
+                placeholder="0"
+              />
               <button type="button" id="use-all-mileage">모두사용</button>
             </div>
           </div>
