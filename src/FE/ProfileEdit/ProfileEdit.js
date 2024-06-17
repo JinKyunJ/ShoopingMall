@@ -14,20 +14,19 @@ document.addEventListener('DOMContentLoaded', async () => {
             throw new Error(errorData.message || '사용자 정보 불러오기 실패');
         }
     } catch (error) {
-        console.error('오류:', error);
         alert('오류가 발생했습니다. 나중에 다시 시도해주세요.');
     }
 });
 
 /** back 버튼 클릭 시 홈으로 이동 */
-const OnBackButton = document.querySelector('.head-back-button');
-OnBackButton.addEventListener('click', () => {
+const onBackButton = document.querySelector('.head-back-button');
+onBackButton.addEventListener('click', () => {
     window.location.href = '/home';
 });
 
 /** cart 버튼 클릭 시 장바구니 페이지로 이동 */
-const OnCartButton = document.querySelector('.head-cart-button');
-OnCartButton.addEventListener('click', () => {
+const onCartButton = document.querySelector('.head-cart-button');
+onCartButton.addEventListener('click', () => {
     window.location.href = '/cart';
 });
 
@@ -118,20 +117,20 @@ nameInput.addEventListener('input', () => {
 });
 
 /** 탈퇴하기 버튼 클릭 시 모달 창 띄우기, 예 클릭 시 탈퇴, 아니오 클릭 시 모달 창 닫기 */
-const OndeleteButton = document.querySelector('.delete-button');
+const onDeleteButton = document.querySelector('.delete-button');
 const deleteModal = document.querySelector('.delete-modal');
-const OnconfirmDeleteButton = document.querySelector('.confirm-delete');
-const OncancelDeleteButton = document.querySelector('.cancel-delete');
+const onConfirmDeleteButton = document.querySelector('.confirm-delete');
+const onCancelDeleteButton = document.querySelector('.cancel-delete');
 
-OndeleteButton.addEventListener('click', () => {
+onDeleteButton.addEventListener('click', () => {
     deleteModal.style.display = 'block';
 });
 
-OncancelDeleteButton.addEventListener('click', () => {
+onCancelDeleteButton.addEventListener('click', () => {
     deleteModal.style.display = 'none';
 });
 
-OnconfirmDeleteButton.addEventListener('click', async (event) => {
+onConfirmDeleteButton.addEventListener('click', async (event) => {
     event.preventDefault(); // 폼 제출 기본 동작 막기
 
     try {
@@ -147,7 +146,6 @@ OnconfirmDeleteButton.addEventListener('click', async (event) => {
             throw new Error(errorData.message || '탈퇴 처리 실패');
         }
     } catch (error) {
-        console.error('오류 발생:', error);
         alert('오류가 발생했습니다. 나중에 다시 시도해주세요.');
     }
 });
@@ -187,7 +185,6 @@ profileEditForm.addEventListener('submit', async (event) => {
             throw new Error(errorData.message || '사용자 정보 수정 실패');
         }
     } catch (error) {
-        console.error('오류:', error);
         alert('오류가 발생했습니다. 나중에 다시 시도해주세요.');
     }
 });
