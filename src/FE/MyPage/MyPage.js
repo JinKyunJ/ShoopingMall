@@ -25,7 +25,6 @@ const fetchAndNavigate = async (url, event) => {
             throw new Error(errorData.message || '페이지 이동 실패');
         }
     } catch (error) {
-        console.error('오류:', error);
         alert('오류가 발생했습니다. 나중에 다시 시도해주세요.');
     }
 };
@@ -50,7 +49,6 @@ const fetchUserName = async () => {
             throw new Error(errorData.message || '사용자 정보 가져오기 실패');
         }
     } catch (error) {
-        console.error('오류:', error);
         alert('오류가 발생했습니다. 나중에 다시 시도해주세요.');
     }
 };
@@ -58,14 +56,14 @@ const fetchUserName = async () => {
 fetchUserName();
 
 /** cart 버튼 클릭 시 장바구니 페이지로 이동 */
-const OnCartButton = document.querySelector('.head-cart-button');
-OnCartButton.addEventListener('click', () => {
+const onCartButton = document.querySelector('.head-cart-button');
+onCartButton.addEventListener('click', () => {
     window.location.href = '/cart';
 });
 
 /** 전체 등급 확인 버튼 클릭 시 등급 확인 페이지로 이동 */
-const OnGradeButton = document.querySelector('.grade-button');
-OnGradeButton.addEventListener('click', () => {
+const onGradeButton = document.querySelector('.grade-button');
+onGradeButton.addEventListener('click', () => {
     window.location.href = '/grade-info';
 });
 
@@ -103,7 +101,6 @@ onLogoutButton.addEventListener('click', async (event) => {
             throw new Error(errorData.message || '로그아웃 실패');
         }
     } catch (error) {
-        console.error('오류:', error);
         alert('오류가 발생했습니다. 나중에 다시 시도해주세요.');
     }
 });
