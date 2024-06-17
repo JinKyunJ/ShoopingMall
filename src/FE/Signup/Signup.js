@@ -1,25 +1,25 @@
 /** back 버튼 클릭 시 홈으로 이동 */
-const OnBackButton = document.querySelector('.head-back-button');
+const onBackButton = document.querySelector('.head-back-button');
 
-OnBackButton.addEventListener('click', () => {
+onBackButton.addEventListener('click', () => {
     /** 경로 '/홈 페이지' */
     window.location.href = '/home';
 });
 
 /** cart 버튼 클릭 시 장바구니 페이지 이동 */
-const OnCartButton = document.querySelector('.head-cart-button');
+const onCartButton = document.querySelector('.head-cart-button');
 
-OnCartButton.addEventListener('click', () => {
+onCartButton.addEventListener('click', () => {
     /** 경로 '/장바구니 페이지' */
     window.location.href = '/cart';
 });
 
 /** 아이디(이메일) 및 중복확인 버튼 클릭 시 */
-const OnConfirmButton = document.querySelector('.confirm-button');
+const onConfirmButton = document.querySelector('.confirm-button');
 const emailInput = document.getElementById('email-input');
 const emailError = document.getElementById('email-error');
 
-OnConfirmButton.addEventListener('click', async () => {
+onConfirmButton.addEventListener('click', async () => {
     const email = emailInput.value;
 
     /** 입력값 유효성 검사 */
@@ -49,10 +49,13 @@ OnConfirmButton.addEventListener('click', async () => {
                 alert('사용 가능한 아이디(이메일)입니다.');
             }
         } else {
-            throw new Error('오류가 발생했습니다. 나중에 다시 시도해주세요.');
+            /** 오류 처리 */
+            const errorData = await response.json();
+            alert('회원가입에 실패했습니다.');
+            throw new Error(errorData.message || '회원가입 실패');
         }
     } catch (error) {
-        alert(`중복 확인 중 오류 발생: ${error.message}`);
+        alert('오류가 발생했습니다. 나중에 다시 시도해주세요.');
     }
 });
 
@@ -117,10 +120,10 @@ if (nameInput && errorSpan) {
 }
 
 /** 주소 검색 아이콘 클릭 시 */
-const OnSearchIcon = document.querySelector('.search-icon');
+const onSearchIcon = document.querySelector('.search-icon');
 const addressInput = document.getElementById('address-input');
 
-OnSearchIcon.addEventListener('click', async (event) => {
+onSearchIcon.addEventListener('click', async (event) => {
     event.preventDefault();
 
     const address = addressInput.value;
@@ -134,20 +137,20 @@ OnSearchIcon.addEventListener('click', async (event) => {
                 alert('검색 결과가 없습니다.');
             }
         } else {
+            /** 오류 처리 */
             const errorData = await response.json();
             alert('주소 검색에 실패했습니다. 나중에 다시 시도해주세요.');
             throw new Error(errorData.message || '주소 검색 실패');
         }
     } catch (error) {
-        console.error('오류 발생:', error);
         alert('오류가 발생했습니다. 나중에 다시 시도해주세요.');
     }
 });
 
 /** 가입하기 버튼 클릭 시 */
-const OnSignupForm = document.getElementById('signup-form');
+const onSignupForm = document.getElementById('signup-form');
 
-OnSignupForm.addEventListener('submit', async (event) => {
+onSignupForm.addEventListener('submit', async (event) => {
     event.preventDefault();
 
     const email = emailInput.value;
@@ -176,13 +179,10 @@ OnSignupForm.addEventListener('submit', async (event) => {
         } else {
             /** 오류 처리 */
             const errorData = await response.json();
-            /** 사용자 알림 + 오류 추적 및 실행 중단 throw new Error 추가 */
             alert('회원가입 중 오류가 발생했습니다. 다시 시도해주세요.');
             throw new Error(errorData.message || '회원가입 실패');
         }
     } catch (error) {
-        /** 콘솔에서 확인하기 위해 console.error() */
-        console.error('오류:', error);
         alert('오류가 발생했습니다. 나중에 다시 시도해주세요.');
     }
 });
