@@ -1,5 +1,4 @@
 /** 로그인 통신 API 함수 */
-
 export async function loginUser(email, password) {
     try {
         const response = await fetch('/login', {
