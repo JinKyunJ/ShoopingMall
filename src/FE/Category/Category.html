@@ -7,46 +7,51 @@
     <link rel="stylesheet" href="../css/layout.css" />
     <link rel="stylesheet" href="../css/reset.css" />
 </head>
+
 <!-- 데이터 속성 사용 -->
 <body data-page-id="Category">
-<header></header>
-
-<div class="Category-List">
-    <div class="Category-List-Index"> <!-- 상위 리스트 영역 -->
-        <div>
-            <a class="Product"> <!-- 제품 객체화 할거 -->
-                <div class="Product-ImageContainer">
-                    <img src="../img/TextImage/Bg01.jpg" class="Product-Image">
-                </div>
-                <div style="width: 100%">
-                    <button class="AddCart-btn">담기</button>
-                </div>
-                <div>
-                    <span> 제품명1 </span>
-                    <span style="font-weight:bold "> 2,000원 </span>
-                </div>
-            </a>
+    <header></header>
+    
+    <!-- 카테고리 리스트 (예시) -->
+    <div class="Category-List">
+        <div class="Category-List-Index">        
+            <div>
+                
+                <a class="Product"> <!--제품 객체화 할거-->
+                    <div class="Product-ImageContainer">
+                        <img src="../img/TextImage/Bg01.jpg" class="Product-Image">
+                    </div>
+                    <div style="width: 100%">
+                        <button class="AddCart-btn">담기</button>
+                    </div>
+                    <div>
+                        <span> 제품명1 </span>
+                        <span style="font-weight:bold "> 2,000원 </span>
+                    </div>
+                </a>
+                
+            </div>
         </div>
     </div>
-</div>
+    
 
-<!-- 팝업 모달 -->
-<div class="ButtonModal hidden" id="CartModal">
-    <div class="ButtonModal-content">
-        <div>
-            <p>제품 정보</p>
-            <img src="../img/TextImage/Bg01.jpg" id="ModalProductImage">
-            <p id="ModalProductName">제품 이름</p>
+    <!-- 팝업 모달 -->
+    <div class="ButtonModal" id="CartModal">
+        <div class="ButtonModal-content">
+            <div>
+                <p>제품 정보</p>
+                <img src="../img/TextImage/Bg01.jpg" id="ModalProductImage">
+                <p id="ModalProductName">제품 이름</p>
+            </div>
+            <div>
+                <p id="ModalProductPrice">제품 가격</p>
+            </div>
+            <button class="ButtonModel-btnClose" id="ButtonModel-btnClose"> 장바구니에 담기 </button>
         </div>
-        <div>
-            <p id="ModalProductPrice">제품 가격</p>
-        </div>
-        <button class="ButtonModel-btnClose" id="ButtonModel-btnClose"> 장바구니에 담기 </button>
     </div>
-</div>
-
-<script src="../js/Category/Category.js"></script> <!-- 카테고리 제품 -->
-<script defer type="text/javascript" src="../js/Category/TestInclude.js"></script> <!-- 컴포넌트 해더 푸터 연결 -->
-<script src="../js/Category/HeaderLayout.js"></script>
+<footer></footer>
+    <script src="../js/Category/Category.js"></script> <!--카테고리 제품-->
+    <script defer type="text/javascript" src="../js/Category/TestInclude.js"></script> <!--컴포넌트 해더 푸터 연결-->
+    <script src="../js/Category/HeaderLayout.js"></script>
 </body>
 </html>

@@ -1,12 +1,9 @@
-
-
 function loadCartItems()
 {
     const cartList = document.getElementById('cart-list'); //생성할 위치 리스트 가져옴
     let cartItems = JSON.parse(localStorage.getItem('cart')); //로컬에 넣어둔 목록을 가져옴
 
-
-    cartItems.forEach(item => {
+    cartItems.forEach( item => {
         const li = document.createElement('li');//엘리맨트 생성
         
         //li테그 안에 넣어야하니까 li를 제외한 테그를 넣음
@@ -45,6 +42,7 @@ function loadCartItems()
 
 // 페이지 로드 시 장바구니 항목을 로드
 document.addEventListener('DOMContentLoaded', loadCartItems);
+
 /*
 // 삭제 버튼 클릭 시 li를 삭제하는 기능
 document.querySelectorAll('li button[aria-label="삭제"]').forEach(button => {

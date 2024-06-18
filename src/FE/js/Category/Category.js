@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
         };
 
         // cart 키로 잡아서
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
         cart.push(productDetails);
         localStorage.setItem('cart', JSON.stringify(cart));
 
