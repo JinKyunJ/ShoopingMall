@@ -55,44 +55,6 @@
                     </div>
                 </a>
                 <!-- 추가 제품 슬라이드들은 여기 추가 -->
-                <a href="product_detail.html" class="swiper-slide">
-                    <div class="Goods-Image">
-                        <img src="../img/main/goods_01.jpeg" alt="제품명1" />
-                        <span class="Goods-Icon"></span>
-                    </div>
-                    <button class="Cart-Btn" type="button">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            height="16px"
-                            viewBox="0 -960 960 960"
-                            width="16px"
-                            fill="#333"
-                        >
-                            <!-- SVG의 path는 필요에 따라 여기에 추가 -->
-                        </svg>
-                        담기
-                    </button>
-                    <div class="goods-info">
-                        <p class="title">제품명</p>
-                        <p class="price">13,000원</p>
-                        <div class="dc-price">
-                            <span class="percent">10%</span>
-                            <div class="price">11,700원</div>
-                        </div>
-                        <p class="review">
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                height="16px"
-                                viewBox="0 -960 960 960"
-                                width="16px"
-                                fill="#5f6368"
-                            >
-                                <!-- SVG의 path는 필요에 따라 여기에 추가 -->
-                            </svg>
-                            100+
-                        </p>
-                    </div>
-                </a>
             </div>
         </div>
     </div>
@@ -117,22 +79,6 @@
     <script src="../js/Category/Category.js"></script> <!--카테고리 제품-->
     <script defer type="text/javascript" src="../js/Category/TestInclude.js"></script> <!--컴포넌트 해더 푸터 연결-->
     <script src="../js/Category/HeaderLayout.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Add event listener for "담기" buttons
-            document.querySelectorAll('.Cart-Btn').forEach(function (button) {
-                button.addEventListener('click', function (event) {
-                    event.preventDefault(); // 링크 기본 동작 막기
-                    event.stopPropagation(); // 부모 클릭 이벤트 막기
-                    document.getElementById('CartModal').classList.add('show');
-                });
-            });
-
-            // Close modal button
-            document.getElementById('ButtonModel-btnClose').addEventListener('click', function () {
-                document.getElementById('CartModal').classList.remove('show');
-            });
-        });
-    </script>
+    <script src="../js/Category/GetCategory.js"> </script>
 </body>
 </html>

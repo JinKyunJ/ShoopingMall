@@ -12,9 +12,10 @@ ViewProductPage.forEach(product => {
 // 담기 버튼 클릭
 document.addEventListener("DOMContentLoaded", () => {
     // 장바구니에 담기 버튼을 클릭할때 팝업 모달 동작
-    document.querySelectorAll(".AddCart-btn").forEach(button => {
+    document.querySelectorAll(".Cart-Btn").forEach(button => {
         button.addEventListener('click', (event) => {
-            event.stopPropagation(); // 이벤트 전파 중단
+            event.preventDefault(); // 링크 기본 동작 막기
+            event.stopPropagation(); // 부모 클릭 이벤트 막기
 
             // 모달 객체를 가져오고 id를 찾아서
             const modal = document.getElementById('CartModal');
