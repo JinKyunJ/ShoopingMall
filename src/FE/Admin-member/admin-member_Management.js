@@ -48,7 +48,7 @@ function renderMembers(members, orders) {
 
         // forEach함수 이용해서 각각 회원정보 html li태그 추가
         const li = document.createElement('li');
-        li.setAttribute('data-id', member.id); // 회원의 고유 ID data-id 속성에 저장
+        li.setAttribute('data-nanoid', member.nanoid); // 회원의 고유 ID data-id 속성에 저장
         li.innerHTML = `
         <div class="date">가입일: ${member.create_at}</div>
         <div class="info">
@@ -65,8 +65,8 @@ function renderMembers(members, orders) {
     /** 각 회원 클릭 이벤트 추가 */
     document.querySelectorAll('.member-list li').forEach((li) => {
         li.addEventListener('click', () => {
-            const memberId = li.getAttribute('data-id');
-            window.location.href = `member-detail.html?id=${memberId}`;
+            const memberNanoid = li.getAttribute('data-nanoid');
+            window.location.href = `member-detail.html?nanoid=${memberNanoid}`;
         });
     });
 }
