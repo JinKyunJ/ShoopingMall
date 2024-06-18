@@ -30,6 +30,7 @@ header a {
   height: 100%;
   left: -100%;
   top: 42px;
+  z-index: 100;
 }
 #menu.active {
   left: 0;
