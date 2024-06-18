@@ -1,9 +1,6 @@
-body {
-  overflow: hidden;
-}
-
 header {
-  position: relative;
+  position: fixed;
+  top: 0;
   width: 100%;
   text-align: center;
   background: #2e77ff;
@@ -32,6 +29,7 @@ header a {
   background: #fff;
   height: 100%;
   left: -100%;
+  top: 0;
 }
 .menu.active {
   left: 0;
