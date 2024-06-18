@@ -44,7 +44,7 @@ function renderMembers(members, orders) {
         // 총 주문 횟수
         const orderCount = memberOrders.length;
         // 총 구매금액
-        const totalPurchaseAmount = memberOrders.reduce((sum, order) => sum + order.total_price, 0);
+        const totalPurchaseAmount = memberOrders.reduce((sum, order) => sum + order.total_price, 0).toLocaleString();
 
         // forEach함수 이용해서 각각 회원정보 html li태그 추가
         const li = document.createElement('li');
@@ -53,7 +53,7 @@ function renderMembers(members, orders) {
         <div class="date">가입일: ${member.create_at}</div>
         <div class="info">
             <div class="info-name">${member.name}(${member.email})</div>
-            <div class="info-purchase">구매금액: ${totalPurchaseAmount} / 주문횟수: ${orderCount}회</div>
+            <div class="info-purchase">구매금액: ${totalPurchaseAmount}원 / 주문횟수: ${orderCount}회</div>
         </div>`;
 
         memberList.appendChild(li); // 새로운 회원정보 리스트 추가
@@ -71,8 +71,8 @@ function renderMembers(members, orders) {
     });
 }
 
-/** 검색 필드 입력, 클릭 시 */
-document.querySelector('.search-button').addEventListener('click', () => {
+/** 검색 기능 함수 */
+function searchMembers() {
     const searchInput = document.querySelector('.search-input').value.toLowerCase(); // 필드에 입력한 값 소문자로 변경
     const members = document.querySelectorAll('.member-list li'); // 모든 회원 리스트 가져오기
 
@@ -89,4 +89,13 @@ document.querySelector('.search-button').addEventListener('click', () => {
             member.style.display = 'none';
         }
     });
+}
+
+/** 검색 버튼 클릭 시 */
+document.querySelector('.search-button').addEventListener('click', searchMembers);
+/** 검색 필드 엔터키 입력 시 */
+document.querySelector('.search-input').addEventListener('keypress', (enter) => {
+    if (enter.key === 'Enter') {
+        searchMembers();
+    }
 });
