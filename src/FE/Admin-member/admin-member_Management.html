@@ -10,7 +10,7 @@
     </head>
     <body>
         <header>
-            <button type="button">
+            <button type="button" id="openMenuBtn">
                 <svg xmlns="http://www.w3.org/2000/svg" height="28px" viewBox="0 -960 960 960" width="28px" fill="#fff">
                     <path
                         d="M170-254.62q-12.75 0-21.37-8.63-8.63-8.62-8.63-21.38 0-12.75 8.63-21.37 8.62-8.61 21.37-8.61h620q12.75 0 21.37 8.62 8.63 8.63 8.63 21.39 0 12.75-8.63 21.37-8.62 8.61-21.37 8.61H170ZM170-450q-12.75 0-21.37-8.63-8.63-8.63-8.63-21.38 0-12.76 8.63-21.37Q157.25-510 170-510h620q12.75 0 21.37 8.63 8.63 8.63 8.63 21.38 0 12.76-8.63 21.37Q802.75-450 790-450H170Zm0-195.39q-12.75 0-21.37-8.62-8.63-8.63-8.63-21.39 0-12.75 8.63-21.37 8.62-8.61 21.37-8.61h620q12.75 0 21.37 8.63 8.63 8.62 8.63 21.38 0 12.75-8.63 21.37-8.62 8.61-21.37 8.61H170Z"
@@ -26,7 +26,7 @@
                 </svg>
             </a>
         </header>
-        <nav class="menu">
+        <nav id="menu">
             <ul class="depth1">
                 <li><a href="#">카테고리</a></li>
                 <li>
@@ -50,8 +50,8 @@
         <!-- 회원 정보-->
         <div class="member-container">
             <div class="member-header">
-                <!-- 검색 버튼 -->
-                <button type="button">
+                <!-- 검색 버튼 및 입력 필드 추가 -->
+                <button class="search-button" type="button">
                     <svg width="24" height="25" viewBox="0 0 24 25" xmlns="http://www.w3.org/2000/svg">
                         <g fill="none" fill-rule="evenodd">
                             <path d="M24 24.5H0V.5h24z" />
@@ -64,6 +64,7 @@
                         </g>
                     </svg>
                 </button>
+                <input type="text" class="search-input" placeholder="회원 검색" />
                 <!-- 총 회원수 -->
                 <div class="total-members">총 <span id="total-members">0</span>명</div>
                 <!-- 회원 정보 순서(임시) -->
@@ -76,16 +77,17 @@
             </div>
             <!-- 회원 정보 -->
             <ul class="member-list">
-                <li>
+                <li data-id="1">
+                    <!-- data-* 속성: 사용자 데이터를 저장할수 있는 방법 제공 -->
                     <div class="date">가입일: 2024-06-18 12:34</div>
                     <div class="info">
                         <div class="info-name">엘리스(elice09@test.com)</div>
-                        <div class="info-purchase">구매금액: 100,000원 / 주문횟수: 5회</div>
+                        <div class="info-purchase">구매금액: 90,000원 / 주문횟수: 3회</div>
                     </div>
                 </li>
             </ul>
         </div>
-
-        <script src="admin-member_Management.js"></script>
+        <!-- 모듈 타입 추가 -->
+        <script type="module" src="admin-member_Management.js"></script>
     </body>
 </html>

@@ -1,3 +1,5 @@
+import { fetchData } from './common/remotes.js';
+
 // 어드민페이지 공통 js
 const menuBtn = document.getElementById('openMenuBtn');
 const menu = document.getElementById('menu');
@@ -8,4 +10,83 @@ menuBtn.addEventListener('click', () => {
     } else {
         menu.classList.add('active');
     }
+});
+
+/** 전체 회원 정보 가져오기 */
+async function fetchMembers() {
+    return await fetchData('http://localhost:3002/users');
+}
+
+/** 전체 주문 정보 가져오기 */
+async function fetchOrders() {
+    return await fetchData('http://localhost:3002/users/orders');
+}
+
+/** 가져온 회원정보 화면에 보여주기 */
+document.addEventListener('DOMContentLoaded', async () => {
+    // DOMContentLoaded: HTML 문서가 분석 된 후 발생
+    const members = await fetchMembers(); // 회원 정보 가져오기
+    const orders = await fetchOrders(); // 주문 정보 가져오기
+    /** fetchMembers() 호출 됐을때 */
+    if (members && orders) {
+        renderMembers(members, orders); // 회원 정보, 주문 정보 함께 전달
+    }
+});
+
+/** 가져온 전체 회원정보 html에 넣어서 화면에 보여주기 */
+function renderMembers(members, orders) {
+    const memberList = document.querySelector('.member-list');
+    memberList.innerHTML = ''; // 기존 리스트 초기화
+
+    members.forEach((member) => {
+        // 회원정보와 주문정보에서 회원 이메일 일치하는 주문들 필터링
+        const memberOrders = orders.filter((order) => order.user.email === member.email);
+        // 총 주문 횟수
+        const orderCount = memberOrders.length;
+        // 총 구매금액
+        const totalPurchaseAmount = memberOrders.reduce((sum, order) => sum + order.total_price, 0);
+
+        // forEach함수 이용해서 각각 회원정보 html li태그 추가
+        const li = document.createElement('li');
+        li.setAttribute('data-id', member.id); // 회원의 고유 ID data-id 속성에 저장
+        li.innerHTML = `
+        <div class="date">가입일: ${member.create_at}</div>
+        <div class="info">
+            <div class="info-name">${member.name}(${member.email})</div>
+            <div class="info-purchase">구매금액: ${totalPurchaseAmount} / 주문횟수: ${orderCount}회</div>
+        </div>`;
+
+        memberList.appendChild(li); // 새로운 회원정보 리스트 추가
+    });
+
+    /** 총 회원수 보여주기 */
+    document.getElementById('total-members').textContent = members.length;
+
+    /** 각 회원 클릭 이벤트 추가 */
+    document.querySelectorAll('.member-list li').forEach((li) => {
+        li.addEventListener('click', () => {
+            const memberId = li.getAttribute('data-id');
+            window.location.href = `member-detail.html?id=${memberId}`;
+        });
+    });
+}
+
+/** 검색 필드 입력, 클릭 시 */
+document.querySelector('.search-button').addEventListener('click', () => {
+    const searchInput = document.querySelector('.search-input').value.toLowerCase(); // 필드에 입력한 값 소문자로 변경
+    const members = document.querySelectorAll('.member-list li'); // 모든 회원 리스트 가져오기
+
+    /** 이름, 이메일 포함 여부 확인  */
+    members.forEach((member) => {
+        const infoName = member.querySelector('.info-name').textContent.toLowerCase();
+
+        // 이름이나 이메일에 검색 입력 값이 포함되어 있는지 확인
+        if (infoName.includes(searchInput)) {
+            // 포함되어 있으면 해당 회원 리스트 항목을 표시
+            member.style.display = 'block';
+        } else {
+            // 포함되어 있지 않으면 해당 회원 리스트 항목을 숨김
+            member.style.display = 'none';
+        }
+    });
 });

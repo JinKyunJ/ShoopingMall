@@ -1,5 +1,6 @@
 .member-container {
     padding: 20px;
+    margin-top: 40px;
 }
 
 .member-header {
@@ -12,10 +13,23 @@
     border-radius: 5px;
 }
 
-.member-header button {
+.search-button {
     background: none;
     border: none;
     cursor: pointer;
+}
+
+.search-button svg {
+    width: 20px;
+    height: 20px;
+}
+
+.search-input {
+    position: absolute;
+    width: 25%;
+    background: none;
+    margin-left: 25px;
+    padding: 5px 5px;
 }
 
 .total-members {
@@ -30,6 +44,7 @@
 
 .member-list {
     list-style: none;
+    overflow-y: auto;
 }
 
 .member-list li {
