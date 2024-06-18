@@ -3,8 +3,10 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>쇼핑몰 관리자</title>
-        <link rel="stylesheet" href="../css/reset.css" />
-        <link rel="stylesheet" href="../css/admin/admin.css" />
+        <!-- 가져온 css파일 임시로 경로 변경해서 사용중 -->
+        <link rel="stylesheet" href="reset.css" />
+        <link rel="stylesheet" href="admin.css" />
+        <link rel="stylesheet" href="admin-member_Management.css" />
     </head>
     <body>
         <header>
@@ -15,7 +17,7 @@
                     />
                 </svg>
             </button>
-            <h2>쇼핑몰 관리자</h2>
+            <h2>회원관리</h2>
             <a href="#">
                 <svg xmlns="http://www.w3.org/2000/svg" height="28px" viewBox="0 -960 960 960" width="28px" fill="#fff">
                     <path
@@ -45,6 +47,45 @@
             </ul>
         </nav>
 
-        <div class="container"></div>
+        <!-- 회원 정보-->
+        <div class="member-container">
+            <div class="member-header">
+                <!-- 검색 버튼 -->
+                <button type="button">
+                    <svg width="24" height="25" viewBox="0 0 24 25" xmlns="http://www.w3.org/2000/svg">
+                        <g fill="none" fill-rule="evenodd">
+                            <path d="M24 24.5H0V.5h24z" />
+                            <path d="M22 22.5H2v-20h20z" />
+                            <g stroke="#333" stroke-linecap="square" stroke-linejoin="round" stroke-width="1.6">
+                                <path
+                                    d="M17.1 10.302c0 2.3-1 4.3-2.6 5.6-1.3 1.1-2.9 1.7-4.7 1.7-4.1 0-7.3-3.3-7.3-7.3 0-4.1 3.3-7.3 7.3-7.3 4-.1 7.3 3.2 7.3 7.3zM20.5 21l-5-5"
+                                />
+                            </g>
+                        </g>
+                    </svg>
+                </button>
+                <!-- 총 회원수 -->
+                <div class="total-members">총 <span id="total-members">0</span>명</div>
+                <!-- 회원 정보 순서(임시) -->
+                <div class="filter">
+                    <select>
+                        <option value="total">가입일순</option>
+                        <option value="name">이름순</option>
+                    </select>
+                </div>
+            </div>
+            <!-- 회원 정보 -->
+            <ul class="member-list">
+                <li>
+                    <div class="date">가입일: 2024-06-18 12:34</div>
+                    <div class="info">
+                        <div class="info-name">엘리스(elice09@test.com)</div>
+                        <div class="info-purchase">구매금액: 100,000원 / 주문횟수: 5회</div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <script src="admin-member_Management.js"></script>
     </body>
 </html>
