@@ -56,7 +56,7 @@ function renderProducts(products) {
     // 각 제품 데이터를 사용하여 HTML 요소 생성
     products.forEach(function(product) {
         const productElement = document.createElement('a');
-        productElement.href = 'product_detail.html';
+        productElement.href = '/src/FE/ProductDetails/Productdetails.html';
         productElement.className = 'swiper-slide';
         productElement.innerHTML = `
             <div class="Goods-Image">
