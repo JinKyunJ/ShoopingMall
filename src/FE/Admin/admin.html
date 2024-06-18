@@ -4,12 +4,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>쇼핑몰 관리자</title>
     <link rel="stylesheet" href="../css/reset.css" />
-    <link rel="stylesheet" href="../css/admin/admin.css" />
+    <link rel="stylesheet" href="../css/admin/layout.css" />
   </head>
   <body>
     <header></header>
     <nav id="menu"></nav>
-    <div class="container"></div>
+    <div class="container main-container">
+      <div class="order-info">
+        <div class="order-count">
+          <p class="today">2024.06.18</p>
+          <div class="order">
+            <p>주문접수</p>
+          </div>
+          <div class="cancel">
+            <p>결제확인</p>
+          </div>
+        </div>
+        <div class="order-price">
+          <p>오늘매출</p>
+          <strong id="today-total-price">150,000</strong>원
+        </div>
+      </div>
+      <ul class="new-list">
+        <li><a href="#">신규회원</a></li>
+        <li><a href="#">전체회원</a></li>
+        <li><a href="#">상품후기</a></li>
+      </ul>
+    </div>
 
     <script type="text/javascript" src="../js/admin/include.js"></script>
   </body>
