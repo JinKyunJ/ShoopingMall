@@ -26,25 +26,25 @@ body {
 /* 헤더 컨테이너 스타일 */
 .head-container {
     display: flex;
-    justify-content: space-between; /* 양 끝 정렬 */
+    justify-content: center;
     align-items: center; /* 세로 가운데 정렬 */
     margin-bottom: 20px; /* 아래 여백 */
     position: relative; /* 상대 위치 */
 }
 
 /* 헤더 버튼 스타일 */
-.head-container button {
+.head-back-button {
     background: none;
     border: none;
     font-size: 16px;
     cursor: pointer;
+    position: absolute;
+    left: 0;
 }
 
 /* 헤더 제목 스타일 */
-.head-title-name h1 {
+.head-title-name {
     font-size: 20px;
-    margin: 0;
-    text-align: center; /* 텍스트 가운데 정렬 */
 }
 
 /* 가입 컨테이너와 컨트롤 스타일 */

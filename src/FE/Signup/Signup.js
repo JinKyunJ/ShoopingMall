@@ -8,14 +8,6 @@ onBackButton.addEventListener('click', () => {
     window.location.href = '/home';
 });
 
-/** cart 버튼 클릭 시 장바구니 페이지 이동 */
-const onCartButton = document.querySelector('.head-cart-button');
-
-onCartButton.addEventListener('click', () => {
-    /** 경로 '/장바구니 페이지' */
-    window.location.href = '/cart';
-});
-
 /** 아이디(이메일) 및 중복확인 버튼 클릭 시 */
 const onConfirmButton = document.querySelector('.confirm-button');
 const emailInput = document.getElementById('email-input');
