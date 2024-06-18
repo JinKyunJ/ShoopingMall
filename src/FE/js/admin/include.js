@@ -15,6 +15,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // nav 로드가 완료된 후 admin.js의 로직을 실행
   const script = document.createElement("script");
   script.type = "text/javascript";
-  script.src = "../js/admin/admin.js";
+  script.src = "/src/FE/js/admin/admin.js";
   document.body.appendChild(script);
 });
