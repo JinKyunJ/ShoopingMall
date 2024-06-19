@@ -12,7 +12,7 @@ onCartButton.addEventListener('click', () => {
 /** 전체 등급 확인 버튼 클릭 시 */
 const onGradeButton = document.querySelector('.grade-button');
 onGradeButton.addEventListener('click', () => {
-    window.location.href = '/grade-info';
+    window.location.href = '#';
 });
 
 /** 대시보드 버튼 클릭 시 */

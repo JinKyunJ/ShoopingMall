@@ -5,14 +5,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>개인정보 수정</title>
         <link rel="stylesheet" href="../css/ProfileEditStyle.css" />
+        <link rel="stylesheet" href="../css/layout.css" />
     </head>
     <body>
         <div class="container">
             <!-- 상단 제목, back, cart 버튼 -->
             <div class="head-container">
-                <button class="head-back-button">back</button>
                 <h1 class="head-title">개인정보 수정</h1>
-                <button class="head-cart-button">cart</button>
+                <button class="head-cart-button">
+                    <img src="../img/svgs/cart.svg" alt="cart-icon" />
+                </button>
             </div>
 
             <div class="body-container">
@@ -117,33 +119,11 @@
                 </form>
             </div>
 
-            <!-- 하단 Nav-Bar -->
-            <nav class="bottom-navbar">
-                <ul>
-                    <li>
-                        <a href="#">
-                            <img src="../img/svgs/home.svg" alt="home-icon" />
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="../img/svgs/burger.svg" alt="burger-icon" />
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="../img/svgs/search.svg" alt="search-icon" />
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="../img/svgs/user.svg" alt="user-icon" />
-                        </a>
-                    </li>
-                </ul>
-            </nav>
+            <footer></footer>
         </div>
+
         <!-- 모듈 타입 추가 -->
         <script type="module" src="../js/ProfileEdit.js"></script>
+        <script defer type="text/javascript" src="../js/include.js"></script>
     </body>
 </html>

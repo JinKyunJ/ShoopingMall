@@ -13,12 +13,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 });
 
-/** back 버튼 클릭 시 홈으로 이동 */
-const onBackButton = document.querySelector('.head-back-button');
-onBackButton.addEventListener('click', () => {
-    window.location.href = '/home';
-});
-
 /** cart 버튼 클릭 시 장바구니 페이지로 이동 */
 const onCartButton = document.querySelector('.head-cart-button');
 onCartButton.addEventListener('click', () => {
