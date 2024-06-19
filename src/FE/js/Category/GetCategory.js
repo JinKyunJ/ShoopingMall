@@ -51,10 +51,12 @@ function renderProducts(products) {
         return;
     }
     
-    const imgPath = "../img/TextImage/${product.image}"
+    const imgPath = "../img/TextImage/${product.image}" //이거 왜 ?
 
+    console.log(imgPath);
     // 각 제품 데이터를 사용하여 HTML 요소 생성
     products.forEach(function(product) {
+        const imgPath = `../img/TextImage/${product.image}` //뭐야?
         const productElement = document.createElement('a');
         productElement.href = '/src/FE/ProductDetails/Productdetails.html';
         productElement.className = 'swiper-slide';
@@ -71,7 +73,6 @@ function renderProducts(products) {
                     width="16px"
                     fill="#333"
                 >
-                    <!-- SVG의 path는 필요에 따라 여기에 추가 -->
                 </svg>
                 담기
             </button>
@@ -90,7 +91,6 @@ function renderProducts(products) {
                         width="16px"
                         fill="#5f6368"
                     >
-                        <!-- SVG의 path는 필요에 따라 여기에 추가 -->
                     </svg>
                     ${product.comments.length}+
                 </p>

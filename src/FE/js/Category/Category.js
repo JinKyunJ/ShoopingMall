@@ -34,12 +34,14 @@ document.addEventListener("DOMContentLoaded", () => {
             const productPrice = findElement.querySelector('.price').textContent;
             const discountedPrice = findElement.querySelector('.dc-price .price').textContent;
             const productImageSrc = findElement.querySelector('.Goods-Image img').src;
+            const discountPercent = findElement.querySelector('.percent')?.textContent || '0%';
 
             // 모달에 제품 정보 설정
             document.getElementById('ModalProductName').textContent = productName;
             document.getElementById('ModalProductPrice').textContent = productPrice;
             document.getElementById('ModalProductDiscountedPrice').textContent = discountedPrice;
             document.getElementById('ModalProductImage').src = productImageSrc;
+            document.getElementById('ModalproductSale').textContent = discountPercent;
 
             // 초기 수량 설정
             quantity = 1;
@@ -84,15 +86,14 @@ document.addEventListener("DOMContentLoaded", () => {
         const productName = document.getElementById("ModalProductName").textContent;
         const discountedPrice = document.getElementById("ModalProductDiscountedPrice").textContent;
         const productPrice = document.getElementById("ModalProductPrice").textContent;
+        const discountPercent = document.getElementById('ModalproductSale')?.textContent || '0%';
 
-        console.log(discountedPrice);
-        console.log(productPrice);
-        
         const productDetails = {
             imageSrc: productImg,
             nameString: productName,
             discountedPrice: discountedPrice,
             originalPrice: productPrice,
+            discountPErcent : discountPercent,
             quantity: parseInt(document.getElementById('productQuantity').textContent) // 수량을 가져옴
         };
 
