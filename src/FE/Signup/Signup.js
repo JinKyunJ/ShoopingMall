@@ -1,38 +1,45 @@
-import { checkEmail, searchAddress, signupUser } from './common/remotes.js';
+import { searchAddress, signupUser, sendEmailCerification, certificationCode } from './common/remotes.js';
 
-/** back 버튼 클릭 시 홈으로 이동 */
+/** X 버튼 클릭 시 로그인 페이지로 이동 */
 const onBackButton = document.querySelector('.head-back-button');
-
 onBackButton.addEventListener('click', () => {
-    /** 경로 '/홈 페이지' */
-    window.location.href = '/home';
+    /** 경로 '/로그인 페이지' */
+    window.location.href = '../Login/Login.html';
 });
 
-/** 아이디(이메일) 및 중복확인 버튼 클릭 시 */
-const onConfirmButton = document.querySelector('.confirm-button');
+/** 이메일 인증 버튼 클릭 시 */
+const onCertificationButton = document.getElementById('certification-button');
 const emailInput = document.getElementById('email-input');
-const emailError = document.getElementById('email-error');
 
-onConfirmButton.addEventListener('click', async () => {
+onCertificationButton.addEventListener('click', async () => {
     const email = emailInput.value;
 
-    /** 입력값 유효성 검사 */
-    if (email.length === 0) {
-        emailError.textContent = '아이디(이메일)을 입력해주세요.';
-        return;
-    } else if (!emailInput.value.includes('@') || !emailInput.value.includes('.')) {
-        emailError.textContent = '이메일 형식으로 입력해주세요.';
-    } else {
-        emailError.textContent = ''; // 기존 에러 메시지 제거
+    try {
+        const data = await sendEmailCerification(email);
+        if (data.exists) {
+            alert('이미 사용중인 이메일입니다.');
+        } else {
+            alert('인증번호가 전송되었습니다.');
+        }
+    } catch (error) {
+        alert(error.message);
     }
+});
+
+/** 이메일 인증 확인 버튼 클릭 시 */
+const onConfirmButton = document.getElementById('confirm-button');
+const confrimEmailInput = document.getElementById('confrim-email-input');
+
+onConfirmButton.addEventListener('click', async () => {
+    // 이메일과 인증번호 검증 하기 위해 email, code 변수로 저장
+    const email = emailInput.value;
+    const code = confrimEmailInput.value;
 
     try {
-        const data = await checkEmail(email);
-        if (data.exists) {
-            alert('중복된 아이디(이메일)입니다. 다시 입력해주세요.');
-        } else {
-            alert('사용 가능한 아이디(이메일)입니다.');
-        }
+        const data = await certificationCode(email, code);
+        if (data.valid) {
+            alert('이메일 인증이 완료되었습니다.');
+        } else '인증번호가 유효하지 않습니다.';
     } catch (error) {
         alert(error.message);
     }

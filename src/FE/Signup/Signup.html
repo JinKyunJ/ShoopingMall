@@ -9,37 +9,52 @@
     <body>
         <div class="container">
             <div class="head-container">
-                <button class="head-back-button">back</button>
+                <button class="head-back-button">X</button>
                 <h1 class="head-title-name">회원가입</h1>
             </div>
 
-            <div>
-                <form id="signup-form">
-                    <div class="signup-container">
-                        <div class="signup-control">
-                            <!-- 아이디(이메일) 및 중복확인 -->
-                            <div class="signup-label">
-                                <label>아이디(이메일) <span>*</span></label>
-                            </div>
-                            <div class="signup-input-wrap">
-                                <div class="signup-input">
-                                    <input
-                                        class="email-input"
-                                        id="email-input"
-                                        type="email"
-                                        name="email"
-                                        placeholder="아이디를 입력해주세요"
-                                        required
-                                    />
-                                    <!-- 에러메세지 추가 -->
-                                    <span class="error-message" id="email-error"></span>
-                                </div>
-                                <button class="confirm-button" type="button">중복확인</button>
-                            </div>
-                        </div>
+            <form id="signup-form">
+                <!-- 이메일 인증 -->
+                <div class="signup-group">
+                    <div class="signup-label">
+                        <label>이메일 <span>*</span></label>
                     </div>
+                    <div class="signup-input-wrap">
+                        <div class="signup-input">
+                            <input
+                                class="email-input"
+                                id="email-input"
+                                type="email"
+                                name="email"
+                                placeholder="이메일을 입력해주세요"
+                                required
+                            />
+                        </div>
+                        <button class="email-button" type="button" id="certification-button">이메일 인증</button>
+                    </div>
+                </div>
 
-                    <!-- 비밀번호 -->
+                <!-- 이메일 인증번호 확인 -->
+                <div class="signup-group">
+                    <div class="signup-label">
+                        <label>이메일 인증번호 <span>*</span></label>
+                    </div>
+                    <div class="signup-input-wrap">
+                        <div class="signup-input">
+                            <input
+                                class="confrim-email-input"
+                                id="confrim-email-input"
+                                type="text"
+                                name="confrim-email"
+                                placeholder="인증번호를 입력해주세요"
+                            />
+                        </div>
+                        <button class="email-button" type="button" id="confirm-button">인증번호 확인</button>
+                    </div>
+                </div>
+
+                <!-- 비밀번호 -->
+                <div class="signup-group">
                     <div class="signup-label">
                         <label>비밀번호 <span>*</span></label>
                     </div>
@@ -57,8 +72,10 @@
                             <span class="error-message" id="password-error"></span>
                         </div>
                     </div>
+                </div>
 
-                    <!-- 비밀번호확인 -->
+                <!-- 비밀번호확인 -->
+                <div class="signup-group">
                     <div class="signup-label">
                         <label>비밀번호확인 <span>*</span></label>
                     </div>
@@ -76,8 +93,10 @@
                             <span class="error-message" id="confirm-password-error"></span>
                         </div>
                     </div>
+                </div>
 
-                    <!-- 이름 -->
+                <!-- 이름 -->
+                <div class="signup-group">
                     <div class="signup-label">
                         <label>이름 <span>*</span></label>
                     </div>
@@ -88,15 +107,17 @@
                                 id="name-input"
                                 type="text"
                                 name="name"
-                                placeholder="이름을 입력해 주세요"
+                                placeholder="이름을 입력해주세요"
                                 required
                             />
                             <!-- 에러메세지 추가 -->
                             <span class="error-message" id="name-error"></span>
                         </div>
                     </div>
+                </div>
 
-                    <!-- 주소 -->
+                <!-- 주소 -->
+                <div class="signup-group">
                     <div class="signup-label">
                         <label>주소 <span>*</span></label>
                     </div>
@@ -114,12 +135,12 @@
                             <span class="address-info">배송지에 따라 상품 정보가 달라질 수 있습니다.</span>
                         </div>
                     </div>
+                </div>
 
-                    <div class="signup">
-                        <button class="signup-button" type="submit">가입하기</button>
-                    </div>
-                </form>
-            </div>
+                <div class="signup">
+                    <button class="signup-button" type="submit">가입하기</button>
+                </div>
+            </form>
         </div>
         <!-- 모듈 타입 추가 -->
         <script type="module" src="Signup.js"></script>
