@@ -190,9 +190,6 @@ function renderProducts(products) {
     return;
   }
 
-  const imgPath = "../img/TextImage/${product.image}"; //이거 왜 ?
-
-  console.log(imgPath);
   // 각 제품 데이터를 사용하여 HTML 요소 생성
   products.forEach(function (product) {
     const imgPath = `../img/TextImage/${product.image}`; //뭐야?
