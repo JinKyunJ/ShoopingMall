@@ -1,61 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // 주문상품 서버에서 불러오기
-  const fetchOrderProducts = async () => {
-    const response = await fetch("", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    if (response.ok) {
-      const data = await response.json();
-      const orderProducs = data.order_products;
-      const orderList = document.querySelector(".order-list");
-      orderList.innerHtml = orderProducs.map(createProductHTML).join("");
-    }
-  };
-
-  // 주문상품 HTML 만들기
-  const createProductHTML = function ({ price, sale, image, title }) {
-    const salePrice = price * ((100 - sale) / 100);
-    return `
-          <li>
-            <div class="img-box">
-              <img src="${image}" alt="${title}" />
-            </div>
-            <div class="info-box">git 
-              <p class="product-title">${title}</p>
-              <div>
-                <b class="price">${salePrice}원</b
-                ><span class="fixed-price">${price}원</span> | n개
-              </div>
-            </div>
-          </li>
-        `;
-  };
-
-  // 주문자 정보 서버에서 불러오기
-  const fetchUserInfo = async () => {
-    const response = fetch("", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    const data = await response.json();
-    const { email, name, address } = data.user;
-    const userName = document.getElementById("user-name");
-    const userEmail = document.getElementById("user-email");
-    const userAddress = document.getElementById("user-address");
-
-    // 적립금은 어떻게 가져오는지 물어보기...
-    const userMileage = document.getElementById("user-mileage");
-
-    userName.innerText = name;
-    userEmail.innerText = email;
-    userAddress.value = address;
-    userMileage.innerText = "";
-  };
+  const form = document.getElementById("order-form");
+  const userName = document.getElementById("user-name");
+  const userEmail = document.getElementById("user-email");
+  const receiverAddress = document.getElementById("user-address");
+  const receiverName = document.getElementById("receiver-name");
+  const receiverPhone = document.getElementById("receiver-phone");
 
   const useAllMileageBtn = document.getElementById("use-all-mileage");
   const mileageInput = document.getElementById("use-mileage-input");
@@ -91,6 +40,79 @@ document.addEventListener("DOMContentLoaded", function () {
     userMileage.innerText = result;
   });
 
+  // 주문상품 로컬 스토리지(장바구니)에서 불러오기
+  const loadOrderProducts = () => {
+    const Products = JSON.parse(localStorage.getItem("cart")) || [];
+    const orderList = document.querySelector(".order-list");
+
+    if (Products.length <= 0) {
+      //alert("장바구니에 담긴 상품이 없습니다.");
+      //window.location.href = "/";
+    }
+
+    orderList.innerHtml = Products.map(createProductHTML).join("");
+  };
+
+  // 주문상품 HTML 만들기
+  const createProductHTML = function ({
+    imageSrc,
+    sale,
+    nameString,
+    originalPrice,
+    quantity,
+  }) {
+    const salePrice = originalPrice * ((100 - sale) / 100);
+    return `
+            <li>
+              <div class="img-box">
+                <img src="${imageSrc}" alt="${nameString}" />
+              </div>
+              <div class="info-box">
+                <p class="product-title">${nameString}</p>
+                <div>
+                  <b class="price">${salePrice}원</b
+                  ><span class="fixed-price">${originalPrice}원</span> | ${quantity}개
+                </div>
+              </div>
+            </li>
+          `;
+  };
+
+  // 주문자 정보 서버에서 불러오기
+  const fetchUserInfo = async () => {
+    const response = fetch("", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const data = await response.json();
+    const { email, name, address } = data.user;
+
+    // 적립금은 어떻게 가져오는지 물어보기...
+    const userMileage = document.getElementById("user-mileage");
+
+    userName.innerText = name;
+    userEmail.innerText = email;
+    receiverAddress.innerText = address;
+    userMileage.innerText = "";
+  };
+
+  // 주문완료 시 주문정보 서버에 전달
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+    const formData = new FormData(this);
+    const jsonData = JSON.stringify(Object.fromEntries(formData.entries()));
+
+    const response = await fetch("http://localhost:3002/users/orders/", {
+      method: "POST",
+      body: jsonData,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  });
+
   // 화살표 있는 title-box 클릭 시 내용이 접히도록 작업
   const titleEl = document.querySelectorAll(".toggle-title");
   titleEl.forEach((el) => {
@@ -103,6 +125,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  //fetchOrderProducts(); // 주문상품 불러오기 실행
-  //fetchUserInfo(); // 주문자 정보 불러오기 실행
+  loadOrderProducts(); // 주문상품 불러오기 실행
+  fetchUserInfo(); // 주문자 정보 불러오기 실행
 });
