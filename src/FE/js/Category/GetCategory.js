@@ -41,7 +41,6 @@ function fetchProducts() {
     });
 }
 
-
 // 제품 데이터를 사용하여 페이지에 동적으로 제품 요소를 추가하는 함수
 function renderProducts(products) {
     const container = document.querySelector('.swiper-wrapper');
@@ -51,13 +50,10 @@ function renderProducts(products) {
         return;
     }
     
-    const imgPath = "../img/TextImage/${product.image}" //이거 왜 ?
-
-    console.log(imgPath);
     // 각 제품 데이터를 사용하여 HTML 요소 생성
     products.forEach(function(product) {
         const imgPath = `../img/TextImage/${product.image}` //뭐야?
-        const productElement = document.createElement('a');
+        const productElement = document.createElement('a'); //엘리멘트 만들고
         productElement.href = '/src/FE/ProductDetails/Productdetails.html';
         productElement.className = 'swiper-slide';
         productElement.innerHTML = `
