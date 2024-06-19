@@ -34,7 +34,12 @@ header + main,
 header + .container {
   margin-top: 91px;
 }
-
+/*공통 요소 스타일 제거*/
+ul, ol {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
 .quick-tool {
   position: fixed;
   left: 0;
