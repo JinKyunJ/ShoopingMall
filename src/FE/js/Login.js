@@ -1,4 +1,4 @@
-import { loginUser } from './common/remotes.js';
+import { loginUser } from '../Login/common/remotes.js';
 
 /** X 버튼 클릭 시 모달 창 닫기 */
 const onCloseButton = document.querySelector('.head-x-button');

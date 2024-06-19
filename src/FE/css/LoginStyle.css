@@ -2,7 +2,7 @@
     /* 공통으로 적용시킬 스타일 */
     margin: 0;
     padding: 0;
-    box-sizing: bo;
+    /*box-sizing: bo;*/
 }
 
 body {

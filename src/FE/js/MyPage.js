@@ -1,4 +1,4 @@
-import { fetchAndNavigate, fetchUserName, logoutUser } from './common/remotes.js';
+import { fetchAndNavigate, fetchUserName, logoutUser } from '../MyPage/common/remotes.js';
 
 /** 사용자 이름 가져오기 함수 호출 */
 fetchUserName();

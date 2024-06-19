@@ -1,4 +1,4 @@
-import { searchAddress, signupUser, sendEmailCerification, certificationCode } from './common/remotes.js';
+import { searchAddress, signupUser, sendEmailCerification, certificationCode } from '../Signup/common/remotes.js';
 
 /** X 버튼 클릭 시 로그인 페이지로 이동 */
 const onBackButton = document.querySelector('.head-back-button');

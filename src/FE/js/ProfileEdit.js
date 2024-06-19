@@ -1,4 +1,4 @@
-import { getUserInfo, checkPassword, deleteUser, editUserInfo } from './common/remotes.js';
+import { getUserInfo, checkPassword, deleteUser, editUserInfo } from '../ProfileEdit/common/remotes.js';
 
 /** 페이지 로드 시 사용자 정보를 요청하여 아이디(이메일), 이름 필드 채우기 */
 document.addEventListener('DOMContentLoaded', async () => {

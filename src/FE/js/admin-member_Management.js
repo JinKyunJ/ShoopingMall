@@ -1,4 +1,4 @@
-import { fetchData } from './common/remotes.js';
+import { fetchData } from '../Admin/Admin-member/common/remotes.js';
 
 // 어드민페이지 공통 js
 const menuBtn = document.getElementById('openMenuBtn');
