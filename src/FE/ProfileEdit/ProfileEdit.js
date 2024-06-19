@@ -1,31 +1,27 @@
+import { getUserInfo, checkPassword, deleteUser, editUserInfo } from './common/remotes.js';
+
 /** 페이지 로드 시 사용자 정보를 요청하여 아이디(이메일), 이름 필드 채우기 */
 document.addEventListener('DOMContentLoaded', async () => {
     // DOMContentLoaded: HTML 문서가 완전히 로드, 분석 후 발생 - 스타일시트, 이미지, 하위 프레임의 로드는 기다리지 않음
     // DOM 트리가 준비된 직후에 실행하고자 하는 코드를 작성할 때 유용
     try {
-        const response = await fetch('/get-user-info');
-        if (response.ok) {
-            const userInfo = await response.json();
-            document.getElementById('email').value = userInfo.email;
-            document.getElementById('name').value = userInfo.name;
-        } else {
-            alert('사용자 정보를 불러오는데 실패했습니다.');
-        }
+        const userInfo = await getUserInfo();
+        document.getElementById('email').value = userInfo.email;
+        document.getElementById('name').value = userInfo.name;
     } catch (error) {
-        console.error('오류:', error);
-        alert('오류가 발생했습니다. 나중에 다시 시도해주세요.');
+        alert(error.message);
     }
 });
 
 /** back 버튼 클릭 시 홈으로 이동 */
-const OnBackButton = document.querySelector('.head-back-button');
-OnBackButton.addEventListener('click', () => {
+const onBackButton = document.querySelector('.head-back-button');
+onBackButton.addEventListener('click', () => {
     window.location.href = '/home';
 });
 
 /** cart 버튼 클릭 시 장바구니 페이지로 이동 */
-const OnCartButton = document.querySelector('.head-cart-button');
-OnCartButton.addEventListener('click', () => {
+const onCartButton = document.querySelector('.head-cart-button');
+onCartButton.addEventListener('click', () => {
     window.location.href = '/cart';
 });
 
@@ -38,14 +34,7 @@ currentPasswordInput.addEventListener('blur', async () => {
     const errorSpan = document.getElementById('current-password-error');
     if (currentPassword) {
         try {
-            const response = await fetch('/check-password', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ password: currentPassword })
-            });
-            const result = await response.json();
+            const result = await checkPassword(currentPassword);
             if (!result.valid) {
                 // 현재비밀번호와 입력한 비밀번호가 다를때
                 errorSpan.textContent = '현재 비밀번호를 확인해 주세요.';
@@ -53,8 +42,7 @@ currentPasswordInput.addEventListener('blur', async () => {
                 errorSpan.textContent = '';
             }
         } catch (error) {
-            console.error('오류:', error);
-            alert('오류가 발생했습니다. 나중에 다시 시도해주세요.');
+            alert(error.message);
         }
     } else {
         // 비밀번호를 입력하지 않았을때
@@ -116,39 +104,31 @@ nameInput.addEventListener('input', () => {
 });
 
 /** 탈퇴하기 버튼 클릭 시 모달 창 띄우기, 예 클릭 시 탈퇴, 아니오 클릭 시 모달 창 닫기 */
-const OndeleteButton = document.querySelector('.delete-button');
+const onDeleteButton = document.querySelector('.delete-button');
 const deleteModal = document.querySelector('.delete-modal');
-const OnconfirmDeleteButton = document.querySelector('.confirm-delete');
-const OncancelDeleteButton = document.querySelector('.cancel-delete');
+const onConfirmDeleteButton = document.querySelector('.confirm-delete');
+const onCancelDeleteButton = document.querySelector('.cancel-delete');
 
-OndeleteButton.addEventListener('click', () => {
+onDeleteButton.addEventListener('click', () => {
     deleteModal.style.display = 'block';
 });
 
-OncancelDeleteButton.addEventListener('click', () => {
+onCancelDeleteButton.addEventListener('click', () => {
     deleteModal.style.display = 'none';
 });
 
-OnconfirmDeleteButton.addEventListener('click', async (event) => {
+/** 사용자 탈퇴 버튼 클릭 시 */
+onConfirmDeleteButton.addEventListener('click', async (event) => {
     event.preventDefault(); // 폼 제출 기본 동작 막기
 
     try {
-        const response = await fetch('/delete-user', {
-            method: 'DELETE'
-        });
-        if (response.ok) {
-            alert('회원 탈퇴가 완료되었습니다.');
-            window.location.href = '/home';
-        } else {
-            alert('탈퇴 처리에 실패했습니다. 다시 시도해주세요.');
-        }
+        await deleteUser();
     } catch (error) {
-        console.error('오류 발생:', error);
-        alert('오류가 발생했습니다. 나중에 다시 시도해주세요.');
+        alert(error.message);
     }
 });
 
-/** 수정하기 버튼 클릭 시 수정한 내용 API로 전송하여 서버에 반영*/
+/** 수정하기 버튼 클릭 시 */
 const profileEditForm = document.getElementById('profile-edit-form');
 profileEditForm.addEventListener('submit', async (event) => {
     event.preventDefault(); // 폼 제출 기본 동작 막기
@@ -160,28 +140,8 @@ profileEditForm.addEventListener('submit', async (event) => {
     const name = document.getElementById('name').value;
 
     try {
-        /** 서버에 사용자 정보 수정 요청 */
-        const response = await fetch('/edit-user-info', {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                email,
-                currentPassword,
-                newPassword,
-                name
-            })
-        });
-
-        if (response.ok) {
-            alert('사용자 정보가 수정되었습니다.');
-            window.location.href = '/home';
-        } else {
-            alert('사용자 정보 수정에 실패했습니다. 다시 시도해주세요.');
-        }
+        await editUserInfo(email, currentPassword, newPassword, name);
     } catch (error) {
-        console.error('오류:', error);
-        alert('오류가 발생했습니다. 나중에 다시 시도해주세요.');
+        alert(error.message);
     }
 });
