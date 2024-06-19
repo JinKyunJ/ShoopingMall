@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     /** 각 회원 id API 함수 호출 */
     if (memberNanoid) {
         try {
-            const member = await fetchData(`http://localhost:3002/users/nanoid/${memberNanoid}`);
+            const member = await fetchData(`http://localhost:3002/users/${memberNanoid}`);
             if (member) {
                 renderMemberDetail(member); // 회원 정보 화면에 표시
             } else {
@@ -40,11 +40,12 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 /** 가져온 회원상세 정보 html에 넣어서 화면에 보여주기 */
 function renderMemberDetail(member) {
-    document.querySelector('.member-name').textContent = member.name;
-    document.getElementById('date').textContent = member.create_at;
-    document.getElementById('grade').textContent = member.grade;
-    document.getElementById('email').textContent = member.email;
-    document.getElementById('phone').textContent = member.phone;
-    document.getElementById('birthday').textContent = member.birthday;
-    document.getElementById('address').textContent = member.address;
+    const user = member.user; // user 객체로 접근
+    document.querySelector('.member-name').textContent = user.name;
+    document.getElementById('date').textContent = user.create_at;
+    document.getElementById('grade').textContent = user.grade;
+    document.getElementById('email').textContent = user.email;
+    document.getElementById('phone').textContent = user.phone;
+    document.getElementById('birthday').textContent = user.birthday;
+    document.getElementById('address').textContent = user.address;
 }
