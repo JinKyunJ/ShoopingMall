@@ -385,3 +385,6 @@ main, .Category-List {
     text-align: center;
     margin: 0 20px; /* 두 배로 확대 */
 }
+.goods-info .ProductID {
+    display: none;
+}

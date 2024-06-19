@@ -11,8 +11,7 @@ ViewProductPage.forEach(product => {
 // 담기 버튼 클릭
 document.addEventListener("DOMContentLoaded", () => {
     let quantity = 1; // 모달의 수량을 저장하는 변수
-    console.log("여긴되고");
-    /*
+    
     // 모달 열기 버튼 이벤트 리스너 설정
     document.querySelectorAll(".Cart-Btns").forEach( button => {
         button.addEventListener('click', (event) => {
@@ -31,14 +30,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 image: findElement.querySelector('.Goods-Image img').src.split('/').pop()
             };
 
-            //showModal(product);//링크 열기
+            showModal(product);//링크 열기
         });
     });
 
         // 모달 열기 및 제품 정보 설정 함수
         function showModal(product) 
         {
-            console.log("으아니차");
 
             const modal = document.getElementById('CartModal');
             modal.classList.remove('hidden');
@@ -80,8 +78,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 modal.classList.add('hidden');
             }, CLOSETIME);
         }
-
-   */
         
     // 초기 카트 카운터 설정
     initializeCartCounter();
