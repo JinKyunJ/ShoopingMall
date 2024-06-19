@@ -58,7 +58,7 @@ ul, ol {
 }
 
 /* footer css */
-footer {
+.footer {
   background: rgb(244, 244, 244);
   margin-bottom: 42px;
   padding: 10px 1.125rem;
@@ -79,4 +79,37 @@ footer .CS-Box h3 {
 }
 footer .CS-Box .CS {
   color: var(--main-color);
+}
+
+/* content-header */
+.content-header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 11;
+  width: 100%;
+  box-sizing: border-box;
+  background: var(--main-color);
+}
+.content-header h2 {
+  color: #fff;
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 50px;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+.content-header .back {
+  position: absolute;
+  left: 1.125rem;
+  top: 14px;
+}
+.content-header ul {
+  position: absolute;
+  right: 1.125rem;
+  top: 10px;
+}
+.content-header + .container {
+  margin-top: 50px;
 }
