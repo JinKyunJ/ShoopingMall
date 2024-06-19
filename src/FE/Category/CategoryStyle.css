@@ -1,4 +1,5 @@
 /* 기존에 작성한 공통 스타일 */
+/* 기존 스타일을 유지한 채, 새로운 스타일을 추가합니다. */
 * {
     margin: 0;
     padding: 0;
@@ -29,7 +30,7 @@ main, .Category-List {
 }
 
 .title-box h2 {
-    font-size: 18px;
+    font-size: 36px; /* 두 배로 확대 */
     color: #333;
 }
 
@@ -37,7 +38,7 @@ main, .Category-List {
     position: absolute;
     right: 0;
     top: 14px;
-    font-size: 14px;
+    font-size: 28px; /* 두 배로 확대 */
     color: #ff8c00;
     text-decoration: none;
 }
@@ -70,29 +71,31 @@ main, .Category-List {
     width: 100%;
     background: #fff;
     border: 1px solid rgb(221, 221, 221);
-    line-height: 32px;
+    line-height: 64px; /* 두 배로 확대 */
     border-radius: 4px;
     margin-top: 8px;
-    padding: 10px;
+    padding: 20px; /* 두 배로 확대 */
     cursor: pointer;
     background-color: #ff8c00;
     color: white;
+    font-size: 28px; /* 두 배로 확대 */
     font-weight: bold;
 }
 
 .goods-info {
-    padding: 10px 0 20px;
+    padding: 20px 0 40px; /* 두 배로 확대 */
+    font-size: 32px; /* 두 배로 확대 */
 }
 
 .goods-info .title, .Product span {
-    margin-bottom: 4px;
-    font-size: 16px;
+    margin-bottom: 8px; /* 두 배로 확대 */
+    font-size: 32px; /* 두 배로 확대 */
     color: #333;
     font-weight: bold;
 }
 
 .goods-info .price, .Product span:nth-of-type(2) {
-    font-size: 12px;
+    font-size: 24px; /* 두 배로 확대 */
     color: rgb(181, 181, 181);
     text-decoration: line-through;
 }
@@ -101,27 +104,29 @@ main, .Category-List {
     display: flex;
     font-weight: bold;
     color: #333;
-    font-size: 14px;
+    font-size: 28px; /* 두 배로 확대 */
 }
 
 .goods-info .percent {
     color: #ff8c00;
-    margin-right: 6px;
+    margin-right: 12px; /* 두 배로 확대 */
 }
 
 .goods-info .dc-price .price {
     color: #333;
-    font-size: 14px;
+    font-size: 28px; /* 두 배로 확대 */
     text-decoration: none;
 }
 
 .goods-info .review {
-    font-size: 12px;
+    font-size: 24px; /* 두 배로 확대 */
     color: rgb(181, 181, 181);
 }
 
 .goods-info .review svg {
     vertical-align: middle;
+    width: 32px; /* 두 배로 확대 */
+    height: 32px; /* 두 배로 확대 */
 }
 
 /* 카테고리 전용 스타일 */
@@ -132,7 +137,7 @@ main, .Category-List {
 
 .Category-Nav-div {
     display: flex;
-    padding: 24px;
+    padding: 48px; /* 두 배로 확대 */
 }
 
 .Category-Nav-btn {
@@ -140,8 +145,8 @@ main, .Category-List {
     height: auto;
     background-color: transparent;
     border: none;
-    font-size: 16px;
-    padding: 24px;
+    font-size: 32px; /* 두 배로 확대 */
+    padding: 48px; /* 두 배로 확대 */
     cursor: pointer;
     color: #333;
 }
@@ -152,7 +157,7 @@ main, .Category-List {
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 6px;
+    height: 12px; /* 두 배로 확대 */
     background-color: black;
 }
 
@@ -160,29 +165,28 @@ main, .Category-List {
 .Category-List-Index ul {
     display: flex;
     flex-direction: column;
-    padding: 0.5rem;
+    padding: 1rem; /* 두 배로 확대 */
 }
 
 .Category-List-Index ul li {
-    margin: 2px;
+    margin: 4px; /* 두 배로 확대 */
 }
 
 .Category-List-btn {
     width: 100%;
     height: auto;
-    font-size: 14px;
+    font-size: 28px; /* 두 배로 확대 */
     text-align: left;
     background-color: rgba(255, 200, 150, 0.5);
     border-radius: 30px;
     border: none;
-    padding: 40px;
+    padding: 80px; /* 두 배로 확대 */
 }
 
 .Category-List-Index > div {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-
+    gap: 40px; /* 두 배로 확대 */
 }
 
 .Product {
@@ -191,15 +195,15 @@ main, .Category-List {
     justify-content: center;
     align-items: center;
     background-color: white;
-    padding: 10px;
+    padding: 20px; /* 두 배로 확대 */
     text-align: center;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1); /* 두 배로 확대 */
     border-radius: 10px;
 }
 
 .Product-ImageContainer {
     width: 100%;
-    padding-top: 100%;
+    padding-top: 200%; /* 두 배로 확대 */
     position: relative;
     overflow: hidden;
     border-radius: 10px;
@@ -232,12 +236,12 @@ main, .Category-List {
 }
 
 .ButtonModal-content {
-    padding: 20px;
+    padding: 40px; /* 두 배로 확대 */
 }
 
 .ButtonModel-btnClose {
     width: 100%;
-    padding: 20px;
+    padding: 40px; /* 두 배로 확대 */
     color: white;
     border: none;
     border-radius: 10px;
@@ -257,7 +261,7 @@ main, .Category-List {
     align-items: center;
     width: 100%;
     box-sizing: border-box;
-    padding: 10px;
+    padding: 20px; /* 두 배로 확대 */
 }
 
 /* 이미지의 크기를 부모 요소에 맞추기 위해 수정합니다. */
@@ -277,13 +281,14 @@ main, .Category-List {
     width: 100%;
     background: #fff;
     border: 1px solid rgb(221, 221, 221);
-    line-height: 32px;
+    line-height: 64px; /* 두 배로 확대 */
     border-radius: 4px;
-    margin-top: 8px;
-    padding: 10px;
+    margin-top: 16px; /* 두 배로 확대 */
+    padding: 20px; /* 두 배로 확대 */
     cursor: pointer;
     background-color: #ff8c00;
     color: white;
+    font-size: 28px; /* 두 배로 확대 */
     font-weight: bold;
     text-align: center;
     display: flex;
@@ -294,6 +299,89 @@ main, .Category-List {
 /* 필요에 따라 전체 레이아웃에 여백을 조정 */
 .goods-info {
     width: 100%;
-    padding: 10px 0 20px;
+    padding: 20px 0 40px; /* 두 배로 확대 */
     text-align: left; /* 왼쪽 정렬 */
+    font-size: 32px; /* 두 배로 확대 */
+}
+
+/* 모달의 새로운 스타일 추가 */
+/* 모달 내의 제품 정보 레이아웃 */
+.modal-product-info {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 40px; /* 두 배로 확대 */
+}
+
+.modal-product-info img {
+    width: 200px; /* 두 배 크기 */
+    height: 200px;
+    margin-right: 40px; /* 두 배로 확대 */
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.modal-product-details {
+    flex-grow: 1;
+}
+
+/* 제품명, 할인가격, 제품가격 크기 조정 (이미지 크기에 맞게 확대) */
+.modal-product-details p {
+    margin: 10px 0; /* 두 배로 확대 */
+    font-size: 3em; /* 두 배로 확대 */
+    text-align: left;
+}
+
+.modal-product-pricing {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* 왼쪽 정렬로 변경 */
+    gap: 20px; /* 두 배로 확대 */
+}
+
+#ModalProductDiscountedPrice {
+    font-size: 3em; /* 두 배로 확대 */
+    font-weight: bold;
+    margin-right: 20px; /* 두 배로 확대 */
+}
+
+/* 제품 가격을 할인가격 옆에 표시 */
+#ModalProductPrice {
+    font-size: 3em; /* 두 배로 확대 */
+    text-decoration: line-through;
+    color: rgb(181, 181, 181);
+}
+
+/* 회색 구분선 */
+.modal-product-details hr {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 20px 0; /* 두 배로 확대 */
+}
+
+/* 수량 조절 버튼 위치 및 크기 조정 */
+.quantity-control {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* 오른쪽 정렬 */
+    margin-bottom: 40px; /* 두 배로 확대 */
+}
+
+.quantity-control button {
+    width: 80px; /* 두 배로 확대 */
+    height: 80px; /* 두 배로 확대 */
+    background: #ff8c00;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.5em; /* 두 배로 확대 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.quantity-control div {
+    font-size: 4.0em; /* 두 배로 확대 */
+    text-align: center;
+    margin: 0 20px; /* 두 배로 확대 */
 }

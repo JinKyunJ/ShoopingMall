@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>카테고리</title>
-    <link rel="stylesheet" href="CategoryStyle.css"> <!-- 외부 리소스와 관계 href 파일 -->
+    <link rel="stylesheet" href="CategoryStyle.css">
     <link rel="stylesheet" href="../css/layout.css" />
     <link rel="stylesheet" href="../css/reset.css" />
-
 </head>
 <body data-page-id="Category">
     <header></header>
@@ -34,7 +33,7 @@
                         담기
                     </button>
                     <div class="goods-info">
-                        <p class="title">제품명</p>
+                        <p class="title">설렁탕</p>
                         <p class="price">13,000원</p>
                         <div class="dc-price">
                             <span class="percent">10%</span>
@@ -62,13 +61,21 @@
     <!-- 팝업 모달 -->
     <div class="ButtonModal" id="CartModal">
         <div class="ButtonModal-content">
-            <div>
-                <p>제품 정보</p>
+            <div class="modal-product-info">
                 <img src="../img/TextImage/Bg01.jpg" id="ModalProductImage">
-                <p id="ModalProductName">제품 이름</p>
+                <div class="modal-product-details">
+                    <p id="ModalProductName">제품 이름</p>
+                    <hr>
+                    <div class="modal-product-pricing">
+                        <p id="ModalProductDiscountedPrice">할인 가격</p>
+                        <p id="ModalProductPrice">제품 가격</p>
+                    </div>
+                </div>
             </div>
-            <div>
-                <p id="ModalProductPrice">제품 가격</p>
+            <div class="quantity-control">
+                <button id="decreaseQtyBtn" aria-label="수량 내리기" disabled>-</button>
+                <div id="productQuantity">1</div>
+                <button id="increaseQtyBtn" aria-label="수량 올리기">+</button>
             </div>
             <button class="ButtonModel-btnClose" id="ButtonModel-btnClose"> 장바구니에 담기 </button>
         </div>
@@ -79,6 +86,6 @@
     <script src="../js/Category/Category.js"></script> <!--카테고리 제품-->
     <script defer type="text/javascript" src="../js/Category/TestInclude.js"></script> <!--컴포넌트 해더 푸터 연결-->
     <script src="../js/Category/HeaderLayout.js"></script>
-    <script src="../js/Category/GetCategory.js"> </script>
+    <script src="../js/Category/GetCategory.js"></script>
 </body>
 </html>
