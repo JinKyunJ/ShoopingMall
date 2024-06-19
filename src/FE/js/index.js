@@ -25,20 +25,94 @@ document.addEventListener("DOMContentLoaded", function () {
     },
   });
 
-  /** 세일 상품 불러오기 */
-  async function fetchSaleProducts() {
+  async function fetchProducts(type) {
     const response = await fetch("http://localhost:3002/products");
     const products = Object.values(await response.json());
-    console.log(products);
+    let result = [];
 
-    const SaleProductList = document.getElementById("sale-product-wrapper");
-    SaleProductList.innerHTML = products.map(createProductHTML).join("");
+    if (type === "sale") {
+      result = products.filter(({ product }) => product.sale > 0);
+    }
+    if (type === "comment") {
+      result = products
+        .filter(({ product }) => product.comments.length > 0)
+        .sort((a, b) => a.product.comments.length - b.product.comments.length);
+    }
+
+    if (type === "popular") {
+      result = products
+        .filter(({ likeUser }) => likeUser.length > 0)
+        .sort((a, b) => a.likeUser.length - b.likeUser.length);
+    }
+
+    if (type === "salad") {
+      result = products.filter(({ product }) => {
+        return product.category.name === "샐러드";
+      });
+    }
+
+    return result;
+  }
+
+  /** 세일 상품 불러오기 */
+  async function fetchSaleProducts() {
+    try {
+      const products = await fetchProducts("sale");
+      const saleProducts = products.map(createProductHTML).join("");
+
+      const saleProductList = document.getElementById("sale-product-wrapper");
+      saleProductList.innerHTML = saleProducts;
+    } catch (error) {
+      console.error("Error fetching sale products:", error);
+    }
+  }
+
+  /** 후기 많은 상품 불러오기 */
+  async function fetchCommentProducts() {
+    try {
+      const products = await fetchProducts("comment");
+      const commentProducts = products.map(createProductHTML).join("");
+
+      const commentProductList = document.getElementById(
+        "comment-product-wrapper"
+      );
+      commentProductList.innerHTML = commentProducts;
+    } catch (error) {
+      console.error("Error fetching comment products:", error);
+    }
+  }
+
+  /** 인기 많은 상품 불러오기 */
+  async function fetchPopularProducts() {
+    try {
+      const products = await fetchProducts("popular");
+      const popularProducts = products.map(createProductHTML).join("");
+
+      const popularProductList = document.getElementById(
+        "popular-product-wrapper"
+      );
+      popularProductList.innerHTML = popularProducts;
+    } catch (error) {
+      console.error("Error fetching popular products:", error);
+    }
+  }
+
+  /** 샐러드 카테고리 상품 불러오기 */
+  async function fetchsaladProducts() {
+    try {
+      const products = await fetchProducts("salad");
+      const saladProducts = products.map(createProductHTML).join("");
+
+      const saladProductList = document.getElementById("salad-product-wrapper");
+      saladProductList.innerHTML = saladProducts;
+    } catch (error) {
+      console.error("Error fetching salad products:", error);
+    }
   }
 
   function createProductHTML({ product }) {
-    const { price, sale, image, title } = product;
-    const salePrice = price * ((100 - sale) / 100);
-
+    const { price, sale, image, title, comments } = product;
+    const salePrice = Math.floor(price * ((100 - sale) / 100));
     return `<div class="swiper-slide">
                 <div class="goods-image">
                     <img src="${image}" alt="" />
@@ -60,14 +134,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 <input type="hidden" value="" name="productNumber" />
                 <div class="goods-info">
                     <p class="title">${title}</p>
-                    <p class="price">${salePrice}</p>
+                    <p class="price">${price}원</p>
                     <div class="dc-price">
                     <span class="percent">${sale}%</span>
-                    <div class="price">${price}</div>
+                    <div class="price">${salePrice}원</div>
                     </div>
                     <p class="review">
                       <svg xmlns="http://www.w3.org/2000/svg" height="16px" viewBox="0 -960 960 960" width="16px" fill="#5f6368"><path d="m241.54-260-80.08 80.07q-17.07 17.08-39.27 7.74Q100-181.54 100-205.85v-581.84Q100-818 121-839q21-21 51.31-21h615.38Q818-860 839-839q21 21 21 51.31v455.38Q860-302 839-281q-21 21-51.31 21H241.54ZM216-320h571.69q4.62 0 8.46-3.85 3.85-3.84 3.85-8.46v-455.38q0-4.62-3.85-8.46-3.84-3.85-8.46-3.85H172.31q-4.62 0-8.46 3.85-3.85 3.84-3.85 8.46v523.08L216-320Zm-56 0v-480 480Zm160-204.62q14.69 0 25.04-10.34 10.34-10.35 10.34-25.04t-10.34-25.04q-10.35-10.34-25.04-10.34t-25.04 10.34q-10.34 10.35-10.34 25.04t10.34 25.04q10.35 10.34 25.04 10.34Zm160 0q14.69 0 25.04-10.34 10.34-10.35 10.34-25.04t-10.34-25.04q-10.35-10.34-25.04-10.34t-25.04 10.34q-10.34 10.35-10.34 25.04t10.34 25.04q10.35 10.34 25.04 10.34Zm160 0q14.69 0 25.04-10.34 10.34-10.35 10.34-25.04t-10.34-25.04q-10.35-10.34-25.04-10.34t-25.04 10.34q-10.34 10.35-10.34 25.04t10.34 25.04q10.35 10.34 25.04 10.34Z"/></svg>
-                      100+
+                      ${comments.length}
                     </p>
                 </div>
             </div>
@@ -75,5 +149,10 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // 페이지 로드 시 상품 리스트를 불러옵니다.
-  window.onload = fetchSaleProducts;
+  window.addEventListener("load", () => {
+    fetchSaleProducts();
+    fetchCommentProducts();
+    fetchPopularProducts();
+    fetchsaladProducts();
+  });
 });
