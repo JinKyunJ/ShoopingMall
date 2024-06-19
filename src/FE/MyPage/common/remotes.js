@@ -24,7 +24,7 @@ export async function fetchAndNavigate(url, event) {
 /** 사용자 이름 가져오기 API 함수 */
 export async function fetchUserName() {
     try {
-        const response = await fetch('/user-info', {
+        const response = await fetch('http://localhost:3002/users', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
@@ -48,8 +48,8 @@ export async function fetchUserName() {
 /** 로그아웃 API 함수 */
 export async function logoutUser() {
     try {
-        const response = await fetch('/logout', {
-            method: 'POST',
+        const response = await fetch('/http://localhost:3002/logout', {
+            method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
             }
