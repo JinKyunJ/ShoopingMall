@@ -3,12 +3,6 @@ import { fetchAndNavigate, fetchUserName, logoutUser } from '../MyPage/common/re
 /** 사용자 이름 가져오기 함수 호출 */
 fetchUserName();
 
-/** cart 버튼 클릭 시 */
-const onCartButton = document.querySelector('.head-cart-button');
-onCartButton.addEventListener('click', () => {
-    window.location.href = '/cart';
-});
-
 /** 전체 등급 확인 버튼 클릭 시 */
 const onGradeButton = document.querySelector('.grade-button');
 onGradeButton.addEventListener('click', () => {

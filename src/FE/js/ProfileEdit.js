@@ -13,12 +13,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 });
 
-/** cart 버튼 클릭 시 장바구니 페이지로 이동 */
-const onCartButton = document.querySelector('.head-cart-button');
-onCartButton.addEventListener('click', () => {
-    window.location.href = '/cart';
-});
-
 /** 현재 비밀번호 검증 */
 const currentPasswordInput = document.getElementById('current-password');
 currentPasswordInput.addEventListener('blur', async () => {
