@@ -60,6 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
     nameString,
     originalPrice,
     quantity,
+    nanoid,
   }) {
     const salePrice = originalPrice * ((100 - sale) / 100);
     return `
@@ -74,6 +75,7 @@ document.addEventListener("DOMContentLoaded", function () {
                   ><span class="fixed-price">${originalPrice}원</span> | ${quantity}개
                 </div>
               </div>
+              <input type="hidden" name="prod_nanoid[]" value="${nanoid}" />
             </li>
           `;
   };
