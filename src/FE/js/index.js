@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   async function fetchProducts(type) {
-    const response = await fetch("http://localhost:3002/products");
+    const response = await fetch("/products");
     const products = Object.values(await response.json());
     let result = [];
 
@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const salePrice = Math.floor(price * ((100 - sale) / 100));
     return `<div class="swiper-slide">
                 <div class="goods-image">
-                    <img src="${image}" alt="" />
+                    <img src="../img/${image}" alt="" />
                 </div>
                 <button class="cart-btn" type="button">
                   <svg
