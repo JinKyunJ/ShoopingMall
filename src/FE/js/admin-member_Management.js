@@ -27,6 +27,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     // DOMContentLoaded: HTML 문서가 분석 된 후 발생
     const members = await fetchMembers(); // 회원 정보 가져오기
     const orders = await fetchOrders(); // 주문 정보 가져오기
+
     /** fetchMembers() 호출 됐을때 */
     if (members && orders) {
         renderMembers(members, orders); // 회원 정보, 주문 정보 함께 전달
@@ -38,21 +39,19 @@ function renderMembers(members, orders) {
     const memberList = document.querySelector('.member-list');
     memberList.innerHTML = ''; // 기존 리스트 초기화
 
+    // forEach함수 사용해서 각각 회원정보 추가
     members.forEach((member) => {
-        // 회원정보와 주문정보에서 회원 이메일 일치하는 주문들 필터링
-        const memberOrders = orders.filter((order) => order.user.email === member.email);
-        // 총 주문 횟수
-        const orderCount = memberOrders.length;
-        // 총 구매금액
-        const totalPurchaseAmount = memberOrders.reduce((sum, order) => sum + order.total_price, 0).toLocaleString();
+        const user = member.user; // user 객체로 접근
+        const memberOrders = orders.filter((order) => order.user.email === user.email); // 회원정보와 주문정보에서 이메일 일치하는 주문 필터링
+        const orderCount = memberOrders.length; // 총 주문 횟수
+        const totalPurchaseAmount = memberOrders.reduce((sum, order) => sum + order.total_price, 0).toLocaleString(); // 총 구매금액
 
-        // forEach함수 이용해서 각각 회원정보 html li태그 추가
         const li = document.createElement('li');
-        li.setAttribute('data-nanoid', member.nanoid); // 회원의 고유 ID data-id 속성에 저장
+        li.setAttribute('data-nanoid', user.nanoid); // user 객체의 필드로 접근
         li.innerHTML = `
-        <div class="date">가입일: ${member.create_at}</div>
+        <div class="date">가입일: ${user.create_at}</div>
         <div class="info">
-            <div class="info-name">${member.name}(${member.email})</div>
+            <div class="info-name">${user.name}(${user.email})</div>
             <div class="info-purchase">구매금액: ${totalPurchaseAmount}원 / 주문횟수: ${orderCount}회</div>
         </div>`;
 

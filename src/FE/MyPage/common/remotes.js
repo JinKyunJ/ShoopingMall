@@ -48,7 +48,7 @@ export async function fetchUserName() {
 /** 로그아웃 API 함수 */
 export async function logoutUser() {
     try {
-        const response = await fetch('/http://localhost:3002/logout', {
+        const response = await fetch('/logout', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
@@ -57,7 +57,11 @@ export async function logoutUser() {
         if (response.ok) {
             // 로컬 스토리지에서 JWT 토근 제거
             localStorage.removeItem('jwtToken');
-            window.location.href = '/home';
+
+            // 쿠키에서 토큰 제거 - 로그아웃 클릭 시 쿠키 즉시 만료로 삭제
+            document.cookie = 'token=; Max-Age=0; path=/;';
+
+            window.location.href = '/';
         } else {
             /** 오류 처리 */
             const errorData = await response.json();
@@ -65,6 +69,6 @@ export async function logoutUser() {
             throw new Error(errorData.message || '로그아웃 실패');
         }
     } catch (error) {
-        alert('오류가 발생했습니다. 나중에 다시 시도해주세요.');
+        console.error(error);
     }
 }
