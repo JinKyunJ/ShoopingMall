@@ -71,14 +71,12 @@ main, .Category-List {
     width: 100%;
     background: #fff;
     border: 1px solid rgb(221, 221, 221);
-    line-height: 64px; /* 두 배로 확대 */
+    line-height: 32px; /* 두 배로 확대 */
     border-radius: 4px;
     margin-top: 8px;
-    padding: 20px; /* 두 배로 확대 */
     cursor: pointer;
     background-color: #ff8c00;
     color: white;
-    font-size: 28px; /* 두 배로 확대 */
     font-weight: bold;
 }
 
@@ -284,10 +282,8 @@ main, .Category-List {
     line-height: 64px; /* 두 배로 확대 */
     border-radius: 4px;
     margin-top: 16px; /* 두 배로 확대 */
-    padding: 20px; /* 두 배로 확대 */
     cursor: pointer;
-    background-color: #ff8c00;
-    color: white;
+    color: black;
     font-size: 28px; /* 두 배로 확대 */
     font-weight: bold;
     text-align: center;
@@ -347,7 +343,7 @@ main, .Category-List {
 
 /* 제품 가격을 할인가격 옆에 표시 */
 #ModalProductPrice {
-    font-size: 3em; /* 두 배로 확대 */
+    font-size: 3em; 
     text-decoration: line-through;
     color: rgb(181, 181, 181);
 }
