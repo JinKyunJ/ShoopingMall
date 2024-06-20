@@ -38,14 +38,7 @@ body {
     position: relative; /* 위치 설정 */
 }
 
-.head-title {
-    /* 헤더 제목 스타일 */
-    font-size: 16px;
-    margin: 0;
-    text-align: center;
-}
-
-.head-cart-button {
+.head-container a {
     /* 장바구니 버튼 스타일 */
     background: none;
     border: none;
@@ -54,6 +47,13 @@ body {
     cursor: pointer;
     position: absolute; /* 절대 위치 설정 */
     right: 12px; /* 오른쪽 끝으로 이동 */
+}
+
+.head-title {
+    /* 헤더 제목 스타일 */
+    font-size: 16px;
+    margin: 0;
+    text-align: center;
 }
 
 .body-container {
