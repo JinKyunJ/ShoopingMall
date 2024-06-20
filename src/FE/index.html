@@ -10,6 +10,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
+    
     <link rel="stylesheet" href="./css/layout.css" />
     <link rel="stylesheet" href="./css/main/main.css" />
   </head>
@@ -40,7 +41,7 @@
           <p>엘리스 추천 특가템 최대 30%</p>
           <a class="more-btn" href="#">전체보기 ></a>
         </div>
-        <div class="product-box product-swiper">
+         <div class="product-box product-swiper">
           <div id="sale-product-wrapper" class="swiper-wrapper">
             <div class="swiper-slide">
               <div class="goods-image">
@@ -60,7 +61,7 @@
                 </svg>
                 담기
               </button>
-              <div class="goods-info"> <!--가격-->
+              <div class="goods-info"> 
                 <p class="title">[사미헌] 갈비탕</p>
                 <p class="price">13,000원</p>
                 <div class="dc-price">
@@ -419,11 +420,36 @@
         </div>
       </section>
     </main>
-
+    <!-- 팝업 모달 -->
+    <div class="ButtonModal" id="CartModal">
+      <div class="ButtonModal-content">
+          <div class="modal-product-info">
+              <img src="#" id="ModalProductImage">
+              <div class="modal-product-details">
+                  <p id="ModalProductName">제품 이름</p>
+                  <hr>
+                  <div class="modal-product-pricing">
+                      <p id="ModalproductSale">할인율</p>
+                      <p id="ModalProductDiscountedPrice">할인 가격</p>
+                      <p id="ModalProductPrice">제품 가격</p>
+                  </div>
+              </div>
+          </div>
+          <div class="quantity-control">
+              <button id="decreaseQtyBtn" aria-label="수량 내리기" disabled>-</button>
+              <div id="productQuantity">1</div>
+              <button id="increaseQtyBtn" aria-label="수량 올리기">+</button>
+          </div>
+          <button class="ButtonModel-btnClose" id="ButtonModel-btnClose"> 장바구니에 담기 </button>
+      </div>
+  </div>
     <footer></footer>
 
-    <script defer type="text/javascript" src="./js/include.js"></script>
+   <!-- <script defer type="text/javascript" src="./js/include.js"></script>-->
+    <script src="./js/Category/HeaderLayout.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script type="text/javascript" src="./js/index.js"></script>
+    <script scr="./img/TextImage/"></script>
+   <!-- <script src="./js/Modal.js"></script> -->
   </body>
 </html>

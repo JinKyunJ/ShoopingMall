@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // '상세정보' 버튼
     const detailsBtnClick = document.querySelector('.Category-Nav-btn:nth-child(2)');
 
+    /*
     // '상품설명' 버튼 클릭 시
     infoBtnClick.addEventListener('click', () => {
         OnScrollSection('product-info');
@@ -22,5 +23,28 @@ document.addEventListener('DOMContentLoaded', () => {
     // '상세정보' 버튼 클릭 시
     detailsBtnClick.addEventListener('click', () => {
         OnScrollSection('more-details');
-    });
+    });*/
 });
+document.addEventListener("DOMContentLoaded", () => {
+    // 로컬스토리지에서 제품 정보를 읽어옴
+    const productDetails = JSON.parse(localStorage.getItem("selectedProduct"));
+    
+    if (productDetails) {
+        renderProductDetails(productDetails);
+    } else {
+        console.error("No product details found in localStorage.");
+    }
+});
+
+function renderProductDetails(product) {
+    document.getElementById("ProductImage").src = `../img/TextImage/${product.image}`;
+    document.getElementById("ProductName").textContent = product.title;
+    document.getElementById("ProductDiscountPercent").textContent = `할인율: ${product.sale}%`;
+    document.getElementById("ProductDiscountedPrice").textContent = `가격: ${formatPrice(product.price - (product.price * (product.sale / 100)))}원`;
+    document.getElementById("ProductOriginalPrice").textContent = `할인전 가격: ${formatPrice(product.price)}원`;
+    document.getElementById("ProductOrigin").textContent = `원산지: ${product.origin || "알 수 없음"}`;
+}
+
+function formatPrice(price) {
+    return price.toLocaleString("ko-KR");
+}
