@@ -113,9 +113,13 @@ document.addEventListener("DOMContentLoaded", function () {
   function createProductHTML({ product }) {
     const { price, sale, image, title, comments } = product;
     const salePrice = Math.floor(price * ((100 - sale) / 100));
+    
+    const imgPath = `./img/TextImage/${image}`;
+    console.log(imgPath);
+
     return `<div class="swiper-slide">
                 <div class="goods-image">
-                    <img src="${image}" alt="" />
+                    <img src="${imgPath}" alt="" />
                 </div>
                 <button class="cart-btn" type="button">
                   <svg
