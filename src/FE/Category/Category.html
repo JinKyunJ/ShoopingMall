@@ -1,77 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>카테고리</title>
-    <link rel="stylesheet" href="CategoryStyle.css"> <!--rel 외부 리소스와 관계  href 파일-->
-</head>
-<body>
-    <!--상단 메뉴 네비게이션 영역-->
-    <div class="title">
-        <div class="title-div">
-            <p class="title-FontStyle">카테고리</p>
-            <div>
-                <button class="title-div-button">cart</button>
-                <p class="cart-counter">0</p>
-            </div>
-        </div>
-        <nav class="Category-Nav">
-            <div class="Category-Nav-div">
-                <button  class="Category-Nav-btn"> <!--나중에 이걸 데이터화 시키면 좋을듯함-->
-                    <span>밀키트</span>
-                </button>
-                <button  class="Category-Nav-btn"> <!--나중에 이걸 데이터화 시키면 좋을듯함-->
-                    <span>샐러드</span>
-                </button>
-            </div>
-        </nav>
-    </div>
+    <link rel="stylesheet" href="../css/CategoryStyle.css" />
+    <link rel="stylesheet" href="../css/layout.css" />
+    <link rel="stylesheet" href="../css/reset.css" />
+  </head>
+  <body data-page-id="Category">
+    <header></header>
+
+    <!-- 카테고리 리스트 -->
     <div class="Category-List">
-        <div class="Category-List-Index">        <!--상위 리스트 영역-->
-            <div>
-                <a class="Product"><!--제품 객체화 할거-->
-                    <div class="Product-ImageContainer">
-                        <img src="../img/TextImage/Bg01.jpg" class="Product-Image">
+      <div class="Category-List-Index">
+        <div class="swiper-wrapper">
+          <!-- 각 제품 슬라이드 샘플
+                <a href="/src/FE/ProductDetails/Productdetails.html" class="swiper-slide">
+                    <div class="Goods-Image">
+                        <img src="../img/main/goods_01.jpeg" alt="제품명1" />
+                        <span class="Goods-Icon"></span>
                     </div>
-                    <div style="width: 100%">
-                        <button class="AddCart-btn">담기</button>
-                    </div>
-                    <div>
-                        <span> 제품명1 </span>
-                        <span style="font-weight:bold "> 2,000원 </span>
+                    <button class="Cart-Btn" type="button">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            height="16px"
+                            viewBox="0 -960 960 960"
+                            width="16px"
+                            fill="#333"
+                        >
+                        </svg>
+                        담기
+                    </button>
+                    <div class="goods-info">
+                        <p class="title">설렁탕</p>
+                        <p class="price">13,000원</p>
+                        <div class="dc-price">
+                            <span class="percent">10%</span>
+                            <div class="price">11,700원</div>
+                        </div>
+                        <p class="review">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                height="16px"
+                                viewBox="0 -960 960 960"
+                                width="16px"
+                                fill="#5f6368"
+                            >
+                            </svg>
+                            100+
+                        </p>
                     </div>
                 </a>
-                <a class="Product"><!--제품 객체화 할거-->
-                    <div class="Product-ImageContainer">
-                        <img src="../img/TextImage/Bg01.jpg" class="Product-Image">
-                    </div>
-                    <div style="width: 100%">
-                        <button class="AddCart-btn">담기</button>
-                    </div>
-                    <div>
-                        <span> 제품명2 </span>
-                        <span style="font-weight:bold "> 3,000원 </span>
-                    </div>
-                </a>
-            </div>
+            -->
+          <!-- 추가 제품 슬라이드들은 여기 추가 -->
         </div>
-    </div>
-    <!--팝업 모달-->
-    <div class="ButtonModal" id="CartModal">
-        <div class="ButtonModal-content">
-            <div>
-                <p>제품 정보</p>>
-                <img src="../img/TextImage/Bg01.jpg" id="ModalProductImage">
-                <p id="ModalProductName">제품 이름</p>
-            </div>
-            <div>
-                <p id="ModalProductPrice">제품 가격</p>
-            </div>
-            <button class="ButtonModel-btnClose" id="ButtonModel-btnClose"> 장바구니에 담기 </button>
-        </div>
+      </div>
     </div>
 
-    <script src="Category.js"></script>
+    <!-- 팝업 모달 -->
+    <div class="ButtonModal" id="CartModal">
+      <div class="ButtonModal-content">
+        <div class="modal-product-info">
+          <img src="../img/TextImage/Bg01.jpg" id="ModalProductImage" />
+          <div class="modal-product-details">
+            <p id="ModalProductName">제품 이름</p>
+            <hr />
+            <div class="modal-product-pricing">
+              <p id="ModalproductSale">할인율</p>
+              <p id="ModalProductDiscountedPrice">할인 가격</p>
+              <p id="ModalProductPrice">제품 가격</p>
+            </div>
+          </div>
+        </div>
+        <div class="quantity-control">
+          <button id="decreaseQtyBtn" aria-label="수량 내리기" disabled>
+            -
+          </button>
+          <div id="productQuantity">1</div>
+          <button id="increaseQtyBtn" aria-label="수량 올리기">+</button>
+        </div>
+        <button class="ButtonModel-btnClose" id="ButtonModel-btnClose">
+          장바구니에 담기
+        </button>
+      </div>
+    </div>
+
+    <footer></footer>
+    
+    <!-- <script defer type="text/javascript" src="../js/Category/TestInclude.js"></script> 컴포넌트 해더 푸터 연결-->
+    <script src="../js/Category/HeaderLayout.js"></script>
+    <script src="../js/Category/GetCategory.js"></script> <!--제품을 서버에서 가져옴-->
 </body>
 </html>
-

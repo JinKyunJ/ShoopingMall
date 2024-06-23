@@ -10,10 +10,11 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
+    
     <link rel="stylesheet" href="./css/layout.css" />
     <link rel="stylesheet" href="./css/main/main.css" />
   </head>
-  <body>
+  <body data-page-id="home">
     <header></header>
     <main role="main">
       <section class="main-slide">
@@ -35,18 +36,18 @@
       </section>
 
       <section class="main-product">
-        <div class="title-box">
+        <div class="title-box">  <!--타이틀 부분-->
           <h2>놓치면 후회할 가격</h2>
           <p>엘리스 추천 특가템 최대 30%</p>
           <a class="more-btn" href="#">전체보기 ></a>
         </div>
-        <div class="product-box product-swiper">
+         <div class="product-box product-swiper">
           <div id="sale-product-wrapper" class="swiper-wrapper">
             <div class="swiper-slide">
-              <div class="Goods-Image">
+              <div class="goods-image">
                 <img src="./img/main/goods_01.jpeg" alt="사미헌 갈비탕" />
               </div>
-              <button class="Cart-Btn" type="button">
+              <button class="cart-btn" type="button">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   height="16px"
@@ -60,7 +61,7 @@
                 </svg>
                 담기
               </button>
-              <div class="goods-info">
+              <div class="goods-info"> 
                 <p class="title">[사미헌] 갈비탕</p>
                 <p class="price">13,000원</p>
                 <div class="dc-price">
@@ -96,13 +97,13 @@
           <a class="more-btn" href="#">전체보기 ></a>
         </div>
         <div class="product-box product-swiper">
-          <div class="swiper-wrapper">
+          <div id="popular-product-wrapper" class="swiper-wrapper">
             <div class="swiper-slide">
-              <div class="Goods-Image">
+              <div class="goods-image">
                 <img src="./img/main/goods_01.jpeg" alt="사미헌 갈비탕" />
-                <span class="Goods-Icon"></span>
+                <span class="goods-icon"></span>
               </div>
-              <button class="Cart-Btn" type="button">
+              <button class="cart-btn" type="button">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   height="16px"
@@ -140,11 +141,11 @@
               </div>
             </div>
             <div class="swiper-slide">
-              <div class="Goods-Image">
+              <div class="goods-image">
                 <img src="./img/main/goods_01.jpeg" alt="사미헌 갈비탕" />
-                <span class="Goods-Icon"></span>
+                <span class="goods-icon"></span>
               </div>
-              <button class="Cart-Btn" type="button">
+              <button class="cart-btn" type="button">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   height="16px"
@@ -182,11 +183,11 @@
               </div>
             </div>
             <div class="swiper-slide">
-              <div class="Goods-Image">
+              <div class="goods-image">
                 <img src="./img/main/goods_01.jpeg" alt="사미헌 갈비탕" />
-                <span class="Goods-Icon"></span>
+                <span class="goods-icon"></span>
               </div>
-              <button class="Cart-Btn" type="button">
+              <button class="cart-btn" type="button">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   height="16px"
@@ -230,17 +231,17 @@
       <section class="main-product">
         <div class="title-box">
           <h2>후기가 많은 인기상품</h2>
-          <p>최근 2주간 후기를 가장 많이 남겨주셨어요</p>
+          <p>엘리스에서 후기가 가장 많은 상품이에요</p>
           <a class="more-btn" href="#">전체보기 ></a>
         </div>
         <div class="product-box product-swiper">
-          <div class="swiper-wrapper">
+          <div id="comment-product-wrapper" class="swiper-wrapper">
             <div class="swiper-slide">
-              <div class="Goods-Image">
+              <div class="goods-image">
                 <img src="./img/main/goods_01.jpeg" alt="사미헌 갈비탕" />
-                <span class="Goods-Icon"></span>
+                <span class="goods-icon"></span>
               </div>
-              <button class="Cart-Btn" type="button">
+              <button class="cart-btn" type="button">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   height="16px"
@@ -278,11 +279,11 @@
               </div>
             </div>
             <div class="swiper-slide">
-              <div class="Goods-Image">
+              <div class="goods-image">
                 <img src="./img/main/goods_01.jpeg" alt="사미헌 갈비탕" />
-                <span class="Goods-Icon"></span>
+                <span class="goods-icon"></span>
               </div>
-              <button class="Cart-Btn" type="button">
+              <button class="cart-btn" type="button">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   height="16px"
@@ -320,11 +321,11 @@
               </div>
             </div>
             <div class="swiper-slide">
-              <div class="Goods-Image">
+              <div class="goods-image">
                 <img src="./img/main/goods_01.jpeg" alt="사미헌 갈비탕" />
-                <span class="Goods-Icon"></span>
+                <span class="goods-icon"></span>
               </div>
-              <button class="Cart-Btn" type="button">
+              <button class="cart-btn" type="button">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   height="16px"
@@ -372,13 +373,13 @@
           <a class="more-btn" href="#">전체보기 ></a>
         </div>
         <div class="product-box product-swiper">
-          <div class="swiper-wrapper">
+          <div id="salad-product-wrapper" class="swiper-wrapper">
             <div class="swiper-slide">
-              <div class="Goods-Image">
+              <div class="goods-image">
                 <img src="./img/main/goods_01.jpeg" alt="사미헌 갈비탕" />
-                <span class="Goods-Icon"></span>
+                <span class="goods-icon"></span>
               </div>
-              <button class="Cart-Btn" type="button">
+              <button class="cart-btn" type="button">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   height="16px"
@@ -419,11 +420,36 @@
         </div>
       </section>
     </main>
-
+    <!-- 팝업 모달 -->
+    <div class="ButtonModal" id="CartModal">
+      <div class="ButtonModal-content">
+          <div class="modal-product-info">
+              <img src="#" id="ModalProductImage">
+              <div class="modal-product-details">
+                  <p id="ModalProductName">제품 이름</p>
+                  <hr>
+                  <div class="modal-product-pricing">
+                      <p id="ModalproductSale">할인율</p>
+                      <p id="ModalProductDiscountedPrice">할인 가격</p>
+                      <p id="ModalProductPrice">제품 가격</p>
+                  </div>
+              </div>
+          </div>
+          <div class="quantity-control">
+              <button id="decreaseQtyBtn" aria-label="수량 내리기" disabled>-</button>
+              <div id="productQuantity">1</div>
+              <button id="increaseQtyBtn" aria-label="수량 올리기">+</button>
+          </div>
+          <button class="ButtonModel-btnClose" id="ButtonModel-btnClose"> 장바구니에 담기 </button>
+      </div>
+  </div>
     <footer></footer>
 
-    <script defer type="text/javascript" src="./js/include.js"></script>
+   <!-- <script defer type="text/javascript" src="./js/include.js"></script>-->
+    <script src="./js/Category/HeaderLayout.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script type="text/javascript" src="./js/index.js"></script>
+    <script scr="./img/TextImage/"></script>
+   <!-- <script src="./js/Modal.js"></script> -->
   </body>
 </html>

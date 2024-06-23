@@ -40,11 +40,11 @@ main section.main-slide {
   overflow: hidden;
   width: 100%;
 }
-.main-product .product-box .Goods-Image img {
+.main-product .product-box .goods-image img {
   width: 100%;
   border-radius: 4px;
 }
-.main-product .product-box .Cart-Btn {
+.main-product .product-box .cart-btn {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -99,3 +99,32 @@ main section.main-slide {
   width: 100%;
 }
 /* //중간 배너 */
+/* CategoryStyle.css에 추가된 내용 */
+/* 메인 페이지에서의 제품 슬라이드 스타일 조정 */
+.main-product-slide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px; /* 필요한 경우 조정 */
+  padding: 0 10px; /* 양쪽 여백 추가 */
+}
+
+.main-product-slide .swiper-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* 제품 간의 간격 */
+  justify-content: center; /* 중앙 정렬 */
+}
+
+.main-product-slide .swiper-slide {
+  width: 100%;
+  max-width: 200px; /* 최대 너비 조정 */
+  margin: 0 auto;
+  padding: 10px;
+  box-sizing: border-box;
+  text-align: center;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}

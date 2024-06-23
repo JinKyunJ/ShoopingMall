@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>로그인</title>
-        <link rel="stylesheet" href="LoginStyle.css" />
+        <link rel="stylesheet" href="../css/LoginStyle.css" />
     </head>
     <body>
         <div class="container">
@@ -19,20 +19,20 @@
 
             <div>
                 <form id="login-form">
-                    <div class="id-password-container">
-                        <div class="id-password-control">
-                            <label for="id-input">
+                    <div class="email-password-container">
+                        <div class="email-password-control">
+                            <label for="email-input">
                                 <input
-                                    class="id-input"
-                                    id="id-input"
+                                    class="email-input"
+                                    id="email-input"
                                     type="email"
-                                    name="id"
+                                    name="email"
                                     placeholder="아이디 입력"
                                     required
                                 />
                             </label>
                         </div>
-                        <div class="id-password-control">
+                        <div class="email-password-control">
                             <label for="password-input">
                                 <input
                                     class="password-input"
@@ -60,6 +60,7 @@
                 </form>
             </div>
         </div>
-        <script src="Login.js"></script>
+        <!-- 모듈 타입 추가 -->
+        <script type="module" src="../js/Login.js"></script>
     </body>
 </html>
